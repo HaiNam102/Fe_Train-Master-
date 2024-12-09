@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SideBar from './SideBar';
-import NavBar from './NavBar';
 import { Outlet } from "react-router-dom";
 import './Admin.scss';
 import { ToastContainer } from 'react-toastify';
