@@ -1,45 +1,53 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { jwtDecode } from 'jwt-decode';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { jwtDecode } from "jwt-decode";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     if (!username || !password) {
-      toast.error('Vui lòng điền đầy đủ thông tin!');
+      toast.error("Vui lòng điền đầy đủ thông tin!");
       return;
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', { username, password });
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        { username, password }
+      );
 
       if (response.data.jwt) {
-        localStorage.setItem('token', response.data.jwt);
+        localStorage.setItem("token", response.data.jwt);
 
         const decodedToken = jwtDecode(response.data.jwt);
         const userRole = decodedToken.role; // Lấy role từ payload trong token
 
-        console.log(userRole);  // Kiểm tra xem role có đúng không
+        console.log(userRole); // Kiểm tra xem role có đúng không
 
-        if (userRole === 'Owner' || userRole === 'Personal_Trainer' || userRole === 'Fitness_Manager') {
-          toast.success('Đăng nhập thành công vào trang admin!');
-          navigate('/Admins');  // Điều hướng đến trang admin nếu role là admin, personal_trainer, hoặc fitness_manager
+        if (
+          userRole === "Owner" ||
+          userRole === "Personal_Trainer" ||
+          userRole === "Fitness_Manager"
+        ) {
+          toast.success("Đăng nhập thành công vào trang admin!");
+          navigate("/Admins"); // Điều hướng đến trang admin nếu role là admin, personal_trainer, hoặc fitness_manager
+        } else if (userRole === "Client") {
+          toast.success("Đăng nhập thành công!!!");
+          navigate("/Clients/Calendar");  
         }
-        // else if(userRole = "Client"){
-        //   toast.success('Đăng nhập thành công!!!');
-        //   navigate('User');
-        // }
       }
     } catch (error) {
-      toast.error('Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu!');
+      toast.error(
+        "Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu!"
+      );
     }
   };
 
@@ -55,20 +63,29 @@ const LoginForm = () => {
                     src="img/login/login.jpg"
                     alt="login form"
                     className="img-fluid h-100"
-                    style={{ borderRadius: "1rem 0 0 1rem", objectFit: "cover" }}
+                    style={{
+                      borderRadius: "1rem 0 0 1rem",
+                      objectFit: "cover",
+                    }}
                   />
                 </div>
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form onSubmit={handleLogin}>
                       <div className="d-flex align-items-center mb-3 pb-1">
-                        {/* <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }}></i> */}
-                        <span className="h1 fw-bold mb-0 mx-auto">Login</span>
+                        <i
+                          className="fas fa-cubes fa-2x me-3"
+                          style={{ color: "#ff6219" }}
+                        ></i>
+                        <span className="h1 fw-bold mb-0">Logo</span>
                       </div>
 
-                      {/* <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}> 
+                      <h5
+                        className="fw-normal mb-3 pb-3"
+                        style={{ letterSpacing: "1px" }}
+                      >
                         Sign into your account
-                      </h5> */}
+                      </h5> */
 
                       <div className="form-outline mb-4">
                         <input
@@ -93,7 +110,6 @@ const LoginForm = () => {
                           onChange={(e) => setPassword(e.target.value)}
                           autoComplete="current-password"
                           className="form-control form-control-lg"
-
                           required
                         />
                         <label className="form-label" htmlFor="form2Example27">
@@ -113,10 +129,7 @@ const LoginForm = () => {
                       <a className="small text-muted" href="/Forgot-password">
                         Forgot password?
                       </a>
-                      <p
-                        className="mb-5 pb-lg-2"
-                        style={{ color: "#393f81" }}
-                      >
+                      <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
                         <a href="/Register_Client" style={{ color: "#393f81" }}>
                           Register here
@@ -139,4 +152,4 @@ const LoginForm = () => {
     </section>
   );
 };
-export default LoginForm  
+export default LoginForm;

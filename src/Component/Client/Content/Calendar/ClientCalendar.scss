@@ -1,0 +1,43 @@
+/* Sự kiện Present */
+.event-present {
+    background-color: #0d63ba !important; /* Xanh đậm */
+    border: 1.5px solid #000000 !important; /* Viền đen */
+    color: white !important;
+  }
+
+  .client-calendar-container {
+    display: flex; /* Dùng flexbox để căn giữa */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao full màn hình */
+    background-color: #f7f7f7; /* Tùy chỉnh màu nền (nếu muốn) */
+  }
+  
+  .fullcalendar-wrapper {
+    width: 80%; /* Đặt chiều rộng lịch (giảm kích thước) */
+    max-width: 900px; /* Giới hạn chiều rộng tối đa */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng */
+    border-radius: 10px; /* Bo góc mềm mại */
+    background-color: white; /* Màu nền trắng */
+    padding: 20px; /* Khoảng cách padding xung quanh */
+  }
+  /* Tăng chiều rộng hoặc chiều cao của ô sự kiện */
+.fc-event {
+    white-space: normal !important; /* Cho phép nội dung xuống dòng */
+    height: auto !important;       /* Tự động điều chỉnh chiều cao */
+    padding: 5px;                  /* Tăng khoảng cách bên trong ô */
+    font-size: 14px;               /* Điều chỉnh cỡ chữ nếu cần */
+    word-wrap: break-word;         /* Ngắt dòng nếu nội dung quá dài */
+  }
+  
+  /* Tăng chiều cao của hàng thời gian nếu cần */
+  .fc-timegrid-slot {
+    height: 40px; /* Tăng chiều cao của ô thời gian */
+  }
+  
+  .fc-timegrid-event {
+    min-height: 20px; /* Chiều cao tối thiểu của sự kiện */
+    font-size: 14px; /* Tăng kích thước chữ nếu cần */
+    line-height: 1.2;
+  }
+  

@@ -21,6 +21,10 @@ import Register_Admin from './Component/Login/Register_Admin';
 import Register_Client from './Component/Login/Register_Client';
 import ForgotPassword from './Component/Login/ForgotPassword';
 import ResetPassword from './Component/Login/ResetPassword';
+import Calendar from './Component/Admin/Content/Calendar/ManagerCalendar';
+import CalendarForm from './Component/Client/Content/Calendar/ClientCalendar';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -33,6 +37,8 @@ root.render(
         <Route path="/Register_Client" element={<Register_Client/>} />
         <Route path="/Forgot-password" element={<ForgotPassword/>} />
         <Route path="/reset-password" element={<ResetPassword/>} /> 
+        <Route path="/Register" element={<Register/>} />
+        <Route path="/Clients/Calendar" element={<CalendarForm />} /> 
         <Route path="/Admins" element={<Admin/>} >
           <Route index element={<DashBoard />} />
           <Route path='DashBoard' element={<DashBoard />} />
@@ -40,6 +46,7 @@ root.render(
           <Route path="Exercise" element={<Exercise/>} />
           <Route path="MealPlan" element={<MealPlan/>} />
           <Route path="Program" element={<Program/>} />
+          <Route path="Calendar" element={<Calendar/>} />
           <Route path="FeedBackMealPlan" element={<FeedbackMealPlan/>} />
           <Route path="FeedBackProgram" element={<FeedbackProgram/>} />
           <Route path="ClientTracking" element={<ClientTracking/>}/>
