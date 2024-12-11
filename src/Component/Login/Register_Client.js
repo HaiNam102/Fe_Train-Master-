@@ -10,10 +10,10 @@ import {
   MDBCheckbox,
 } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
-import "./Register.scss"
+import "./Register.scss";
 
 const Register_Client = () => {
-  const navigate = useNavigate(); // Hook để chuyển hướng
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -31,10 +31,7 @@ const Register_Client = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleConfirmPasswordChange = (e) => {
@@ -44,11 +41,9 @@ const Register_Client = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const usernameRegex = /^[a-zA-Z0-9]{3,15}$/; // Username validation
+    const usernameRegex = /^[a-zA-Z0-9]{3,15}$/;
     if (!usernameRegex.test(formData.username)) {
-      toast.error(
-        "Username must be 3-15 characters long and contain only letters and numbers."
-      );
+      toast.error("Username must be 3-15 characters long and contain only letters and numbers.");
       return;
     }
 
@@ -61,108 +56,112 @@ const Register_Client = () => {
         "http://localhost:8080/api/auth/register",
         formData
       );
-      console.log(response.data);
       toast.success("Registration successful!");
-
-      // Chuyển hướng sang trang đăng nhập
       navigate("/login");
     } catch (error) {
-      const errorMessage =
-        error.response?.data || "An error occurred. Please try again.";
+      const errorMessage = error.response?.data || "An error occurred. Please try again.";
       toast.error(errorMessage);
     }
   };
 
   return (
-    <MDBContainer
-      fluid
+    <MDBContainer fluid
       className="d-flex align-items-center justify-content-center bg-image"
       style={{
         backgroundImage:
           "url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp)",
       }}
     >
-      <div className="mask gradient-custom-3"></div>
-      <MDBCard className="m-5" style={{ width: 1000 }}>
-        <MDBCardBody className="px-5">
-          <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+      <MDBCard className="m-5 shadow-lg" style={{ width: 800 }}>
+        <MDBCardBody className="p-5">
+          <h2 className="text-center mb-5">Create Your Account</h2>
           <form onSubmit={handleSubmit}>
-            <div className="row">
-              {/* Username */}
-              <div className="col-md-6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Username"
-                  size="lg"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              {/* Password */}
-              <div className="col-md-6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Password"
-                  size="lg"
-                  name="password"
-                  type="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+            {/* Username */}
+            <div className="mb-4">
+              <label htmlFor="username" className="form-label">
+                Username
+              </label>
+              <MDBInput
+                id="username"
+                placeholder="Enter your username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              />
             </div>
 
-            <div className="row">
-              {/* Confirm Password */}
-              <div className="col-md-6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Confirm Password"
-                  size="lg"
-                  name="confirmPassword"
-                  type="password"
-                  value={confirmPassword}
-                  onChange={handleConfirmPasswordChange}
-                  required
-                />
-              </div>
+            {/* Password */}
+            <div className="mb-4">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <MDBInput
+                id="password"
+                placeholder="Enter your password"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-              {/* First Name */}
-              <div className="col-md-6">
+            {/* Confirm Password */}
+            <div className="mb-4">
+              <label htmlFor="confirmPassword" className="form-label">
+                Confirm Password
+              </label>
+              <MDBInput
+                id="confirmPassword"
+                placeholder="Re-enter your password"
+                name="confirmPassword"
+                type="password"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                required
+              />
+            </div>
+
+            {/* Personal Information */}
+            <div className="row">
+              <div className="col-md-6 mb-4">
+                <label htmlFor="firstName" className="form-label">
+                  First Name
+                </label>
                 <MDBInput
-                  wrapperClass="mb-4"
-                  label="First Name"
-                  size="lg"
+                  id="firstName"
+                  placeholder="Your first name"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
                   required
                 />
               </div>
-            </div>
-
-            <div className="row">
-              {/* Last Name */}
-              <div className="col-md-6">
+              <div className="col-md-6 mb-4">
+                <label htmlFor="lastName" className="form-label">
+                  Last Name
+                </label>
                 <MDBInput
-                  wrapperClass="mb-4"
-                  label="Last Name"
-                  size="lg"
+                  id="lastName"
+                  placeholder="Your last name"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
                   required
                 />
               </div>
+            </div>
 
+            <div className="row">
               {/* Gender */}
-              <div className="col-md-6">
+              <div className="col-md-6 mb-4">
+                <label htmlFor="gender" className="form-label">
+                  Gender
+                </label>
                 <select
-                  className="form-select mb-4"
+                  className="form-select"
+                  id="gender"
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
@@ -175,15 +174,15 @@ const Register_Client = () => {
                   <option value="Female">Female</option>
                 </select>
               </div>
-            </div>
 
-            <div className="row">
               {/* Birth Date */}
-              <div className="col-md-6">
+              <div className="col-md-6 mb-4">
+                <label htmlFor="birthDate" className="form-label">
+                  Birth Date
+                </label>
                 <MDBInput
-                  wrapperClass="mb-4"
-                  label="Birth Date"
-                  size="lg"
+                  id="birthDate"
+                  placeholder="YYYY-MM-DD"
                   name="birthDate"
                   type="date"
                   value={formData.birthDate}
@@ -191,69 +190,70 @@ const Register_Client = () => {
                   required
                 />
               </div>
+            </div>
 
+            <div className="row">
               {/* Phone */}
-              <div className="col-md-6">
+              <div className="col-md-6 mb-4">
+                <label htmlFor="phone" className="form-label">
+                  Phone Number
+                </label>
                 <MDBInput
-                  wrapperClass="mb-4"
-                  label="Phone"
-                  size="lg"
+                  id="phone"
+                  placeholder="Your phone number"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   required
                 />
               </div>
-            </div>
 
-            <div className="row">
               {/* Address */}
-              <div className="col-md-6">
+              <div className="col-md-6 mb-4">
+                <label htmlFor="address" className="form-label">
+                  Address
+                </label>
                 <MDBInput
-                  wrapperClass="mb-4"
-                  label="Address"
-                  size="lg"
+                  id="address"
+                  placeholder="Your home address"
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
                   required
                 />
               </div>
-
-              {/* Email */}
-              <div className="col-md-6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Email"
-                  size="lg"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
             </div>
 
-            {/* Terms Checkbox */}
-            <div className="d-flex flex-row justify-content-center mb-4">
-              <MDBCheckbox
-                name="flexCheck"
-                id="flexCheckDefault"
-                label="I agree all statements in Terms of service"
+            {/* Email */}
+            <div className="mb-4">
+              <label htmlFor="email" className="form-label">
+                Email Address
+              </label>
+              <MDBInput
+                id="email"
+                placeholder="Your email address"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
               />
             </div>
 
-            <MDBBtn
-              className="mb-4 w-100 gradient-custom-4"
-              size="lg"
-              type="submit"
-            >
+            {/* Terms Checkbox */}
+            <MDBCheckbox
+              className="mb-4"
+              name="terms"
+              id="termsCheckbox"
+              label="I agree to the Terms and Conditions"
+              required
+            />
+
+            {/* Submit Button */}
+            <MDBBtn className="w-100" color="primary" size="lg" type="submit">
               Register
             </MDBBtn>
           </form>
-
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>

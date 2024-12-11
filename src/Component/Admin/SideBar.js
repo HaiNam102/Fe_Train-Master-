@@ -100,7 +100,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
                     <Link to="/Admins/ClientTracking" className="nav-text">Client Tracking</Link>
                 </MenuItem>
                 <MenuItem icon={<i className="fa fa-registered fa-2x"></i>} style={{ marginBottom: 2 }}>
-                    <Link to="/Register_Admin" className="nav-text">Register Admin</Link>
+                    <Link to="/Admins/Register" className="nav-text">Register Admin</Link>
                 </MenuItem>
                 <MenuItem icon={<i className="fa fa-user fa-2x"></i>}>
                     <Link to="/Admins/InfoUser" className="nav-text">Profile</Link>

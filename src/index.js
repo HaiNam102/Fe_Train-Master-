@@ -17,7 +17,8 @@ import PersonalTrainerInfo from './Component/Admin/Content/InfoAdmin/PersonalTra
 import Logout from './Component/Login/Logout';
 import UserInfo from './Component/Admin/Content/InfoAdmin/UserInfo';
 import ClientTracking from './Component/Admin/Content/ClientTracking/ManagerTracking'
-import Register_Admin from './Component/Login/Register_Admin';
+// import Register_Admin from './Component/Login/Register_Admin';
+import Register_Admin from './Component/Admin/Content/Register/Register_Admin';
 import Register_Client from './Component/Login/Register_Client';
 import ForgotPassword from './Component/Login/ForgotPassword';
 import ResetPassword from './Component/Login/ResetPassword';
@@ -29,7 +30,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App/>}/>
         <Route path="/Login" element={<LoginForm/>}/>
-        <Route path="/Register_Admin" element={<Register_Admin/>} />
+        {/* <Route path="/Register_Admin" element={<Register_Admin/>} /> */}
         <Route path="/Register_Client" element={<Register_Client/>} />
         <Route path="/Forgot-password" element={<ForgotPassword/>} />
         <Route path="/reset-password" element={<ResetPassword/>} /> 
@@ -43,6 +44,7 @@ root.render(
           <Route path="FeedBackMealPlan" element={<FeedbackMealPlan/>} />
           <Route path="FeedBackProgram" element={<FeedbackProgram/>} />
           <Route path="ClientTracking" element={<ClientTracking/>}/>
+          <Route path="Register" element={<Register_Admin/>}/>
           <Route path="InfoAdmin" element={<PersonalTrainerInfo/>}/>
           <Route path="logout" element={<Logout/>}/>
           <Route path="InfoUser" element={<UserInfo/>}/>
