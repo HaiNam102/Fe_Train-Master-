@@ -16,8 +16,11 @@ import FeedbackProgram from './Component/Admin/Content/FeedBackProgram/ManagerFe
 import PersonalTrainerInfo from './Component/Admin/Content/InfoAdmin/PersonalTrainerInfo';
 import Logout from './Component/Login/Logout';
 import UserInfo from './Component/Admin/Content/InfoAdmin/UserInfo';
-import Register from './Component/Login/Register';
 import ClientTracking from './Component/Admin/Content/ClientTracking/ManagerTracking'
+import Register_Admin from './Component/Login/Register_Admin';
+import Register_Client from './Component/Login/Register_Client';
+import ForgotPassword from './Component/Login/ForgotPassword';
+import ResetPassword from './Component/Login/ResetPassword';
 import Calendar from './Component/Admin/Content/Calendar/ManagerCalendar';
 import CalendarForm from './Component/Client/Content/Calendar/ClientCalendar';
 
@@ -30,6 +33,10 @@ root.render(
       <Routes>
         <Route path="/" element={<App/>}/>
         <Route path="/Login" element={<LoginForm/>}/>
+        <Route path="/Register_Admin" element={<Register_Admin/>} />
+        <Route path="/Register_Client" element={<Register_Client/>} />
+        <Route path="/Forgot-password" element={<ForgotPassword/>} />
+        <Route path="/reset-password" element={<ResetPassword/>} /> 
         <Route path="/Register" element={<Register/>} />
         <Route path="/Clients/Calendar" element={<CalendarForm />} /> 
         <Route path="/Admins" element={<Admin/>} >

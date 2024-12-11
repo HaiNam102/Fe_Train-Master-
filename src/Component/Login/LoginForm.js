@@ -85,7 +85,7 @@ const LoginForm = () => {
                         style={{ letterSpacing: "1px" }}
                       >
                         Sign into your account
-                      </h5>
+                      </h5> */
 
                       <div className="form-outline mb-4">
                         <input
@@ -126,12 +126,12 @@ const LoginForm = () => {
                         </button>
                       </div>
 
-                      <a className="small text-muted" href="#!">
+                      <a className="small text-muted" href="/Forgot-password">
                         Forgot password?
                       </a>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
-                        <a href="/Register" style={{ color: "#393f81" }}>
+                        <a href="/Register_Client" style={{ color: "#393f81" }}>
                           Register here
                         </a>
                       </p>
