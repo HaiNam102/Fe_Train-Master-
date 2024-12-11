@@ -18,6 +18,10 @@ import Logout from './Component/Login/Logout';
 import UserInfo from './Component/Admin/Content/InfoAdmin/UserInfo';
 import Register from './Component/Login/Register';
 import ClientTracking from './Component/Admin/Content/ClientTracking/ManagerTracking'
+import Calendar from './Component/Admin/Content/Calendar/ManagerCalendar';
+import CalendarForm from './Component/Client/Content/Calendar/ClientCalendar';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,6 +31,7 @@ root.render(
         <Route path="/" element={<App/>}/>
         <Route path="/Login" element={<LoginForm/>}/>
         <Route path="/Register" element={<Register/>} />
+        <Route path="/Clients/Calendar" element={<CalendarForm />} /> 
         <Route path="/Admins" element={<Admin/>} >
           <Route index element={<DashBoard />} />
           <Route path='DashBoard' element={<DashBoard />} />
@@ -34,6 +39,7 @@ root.render(
           <Route path="Exercise" element={<Exercise/>} />
           <Route path="MealPlan" element={<MealPlan/>} />
           <Route path="Program" element={<Program/>} />
+          <Route path="Calendar" element={<Calendar/>} />
           <Route path="FeedBackMealPlan" element={<FeedbackMealPlan/>} />
           <Route path="FeedBackProgram" element={<FeedbackProgram/>} />
           <Route path="ClientTracking" element={<ClientTracking/>}/>
