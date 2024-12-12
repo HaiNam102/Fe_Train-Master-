@@ -3,13 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+=======
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+>>>>>>> 3776e3355faeb279595fad98a25c36340b530e06
     "@fortawesome/fontawesome-free": "^6.7.1",
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
+<<<<<<< HEAD
     "@mui/material": "^6.1.10",
+=======
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+>>>>>>> 3776e3355faeb279595fad98a25c36340b530e06
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

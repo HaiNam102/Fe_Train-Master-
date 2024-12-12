@@ -21,15 +21,23 @@ import Register_Admin from './Component/Login/Register_Admin';
 import Register_Client from './Component/Login/Register_Client';
 import ForgotPassword from './Component/Login/ForgotPassword';
 import ResetPassword from './Component/Login/ResetPassword';
+<<<<<<< HEAD
 import ClientRoutes from './Component/routes/ClientRoutes';
 import Tracking from './Component/Client/ClientTracking/Tracking';
 import ProgramClient from './Component/Client/Program/ProgramComponent'; 
 import MealPlanClient from './Component/Client/Mealplan/MealPlanComponent'; 
 import Home from './Component/Client/Home/Home';
+=======
+import Calendar from './Component/Admin/Content/Calendar/ManagerCalendar';
+import CalendarForm from './Component/Client/Content/Calendar/ClientCalendar';
+
+
+>>>>>>> 3776e3355faeb279595fad98a25c36340b530e06
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
+<<<<<<< HEAD
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
@@ -63,6 +71,37 @@ root.render(
       </Route>
     </Routes>
   </BrowserRouter>
+=======
+  // <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App/>}/>
+        <Route path="/Login" element={<LoginForm/>}/>
+        <Route path="/Register_Admin" element={<Register_Admin/>} />
+        <Route path="/Register_Client" element={<Register_Client/>} />
+        <Route path="/Forgot-password" element={<ForgotPassword/>} />
+        <Route path="/reset-password" element={<ResetPassword/>} /> 
+        <Route path="/Register" element={<Register/>} />
+        <Route path="/Clients/Calendar" element={<CalendarForm />} /> 
+        <Route path="/Admins" element={<Admin/>} >
+          <Route index element={<DashBoard />} />
+          <Route path='DashBoard' element={<DashBoard />} />
+          <Route path="Food" element={<Food />} />
+          <Route path="Exercise" element={<Exercise/>} />
+          <Route path="MealPlan" element={<MealPlan/>} />
+          <Route path="Program" element={<Program/>} />
+          <Route path="Calendar" element={<Calendar/>} />
+          <Route path="FeedBackMealPlan" element={<FeedbackMealPlan/>} />
+          <Route path="FeedBackProgram" element={<FeedbackProgram/>} />
+          <Route path="ClientTracking" element={<ClientTracking/>}/>
+          <Route path="InfoAdmin" element={<PersonalTrainerInfo/>}/>
+          <Route path="logout" element={<Logout/>}/>
+          <Route path="InfoUser" element={<UserInfo/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter> 
+  // </React.StrictMode>
+>>>>>>> 3776e3355faeb279595fad98a25c36340b530e06
 );
 
 reportWebVitals();
