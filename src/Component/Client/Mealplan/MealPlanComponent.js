@@ -98,12 +98,12 @@ const ApprovedMealPlans = () => {
   const groupedMealPlans = groupFoodsByMealPlan(mealPlans);
 
   return (
-    <Container>
+    <Container style={{paddingTop:"90px"}}   >
       {Object.values(groupedMealPlans).map((mealPlan) => (
         <div key={mealPlan.mealPlanId} className="meal-plan">
             <h2>Session: {mealPlan.session}</h2>
           <h4>Day: {mealPlan.day}  - Training Status: {mealPlan.trainingStatus ? "Training Day" : "Not Training Day"}</h4>
-          <Table striped bordered hover>
+          <Table striped bordered hover style={{paddingTop:"90px"}}>
             <thead>
               <tr>
                 <th>Food Name</th>
