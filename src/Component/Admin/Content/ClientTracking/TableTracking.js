@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import UpdateTracking from './UpdateTracking';
-import DeleteTracking from './DeleteTracking';
-import ReactPaginate from 'react-paginate';
-import './Tracking.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import UpdateTracking from "./UpdateTracking";
+import DeleteTracking from "./DeleteTracking";
+import ReactPaginate from "react-paginate";
+import "./Tracking.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const TableTracking = ({ refresh }) => {
   const [trackingData, setTrackingData] = useState([]);
@@ -15,7 +15,7 @@ const TableTracking = ({ refresh }) => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedTrackingId, setSelectedTrackingId] = useState(null);
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   const axiosInstance = axios.create({
     headers: {
       Authorization: `Bearer ${token}`,
@@ -26,13 +26,15 @@ const TableTracking = ({ refresh }) => {
   const fetchTrackingData = async () => {
     try {
       const response = await axiosInstance.get(
-        'http://localhost:8080/clientstracking/getAllClientsTracking'
+        "http://localhost:8080/clientstracking/getAllClientsTracking"
       );
       const trackingData = response.data;
       setTrackingData(trackingData);
 
       // Lấy danh sách ID client
-      const clientIds = trackingData.map((item) => item.client?.clientId).filter(Boolean);
+      const clientIds = trackingData
+        .map((item) => item.client?.clientId)
+        .filter(Boolean);
       const uniqueClientIds = [...new Set(clientIds)]; // Loại bỏ ID trùng lặp
 
       // Gọi API lấy tên client cho từng ID
@@ -48,7 +50,7 @@ const TableTracking = ({ refresh }) => {
 
       setClientNames(clientNameMap);
     } catch (error) {
-      console.error('Error fetching tracking data:', error);
+      console.error("Error fetching tracking data:", error);
     }
   };
 
@@ -61,7 +63,7 @@ const TableTracking = ({ refresh }) => {
       return response.data.firstName; // Giả sử API trả về tên client
     } catch (error) {
       console.error(`Error fetching client name for ID ${clientId}:`, error);
-      return 'Unknown Client';
+      return "Unknown Client";
     }
   };
 
@@ -75,7 +77,10 @@ const TableTracking = ({ refresh }) => {
 
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentTrackingData = trackingData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentTrackingData = trackingData.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
   const totalPages = Math.ceil(trackingData.length / itemsPerPage);
 
   const handleEditClick = (trackingId) => {
@@ -111,7 +116,7 @@ const TableTracking = ({ refresh }) => {
               <tr key={tracking.trackingId}>
                 <td>{tracking.trackingId}</td>
                 <td>
-                  {clientNames[tracking.client?.clientId] || 'Loading...'}
+                  <td>{`${tracking.client.firstName}`}</td>
                 </td>
                 <td>{tracking.date}</td>
                 <td>{tracking.weight}</td>
