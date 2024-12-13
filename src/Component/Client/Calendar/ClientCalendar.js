@@ -47,7 +47,7 @@ const ClientCalendar = () => {
     try {
       const response = await axiosInstance.get("http://localhost:8080/calendar/getCalendarByUN");
       console.log(response.data);  // Kiểm tra cấu trúc của dữ liệu trả về
-      
+
       // Kiểm tra xem calendarEntries có phải là mảng không
       if (Array.isArray(response.data.calendarEntries)) {
         const eventData = response.data.calendarEntries.map((entry) => ({
@@ -59,7 +59,7 @@ const ClientCalendar = () => {
           className: entry.attendanceStatus ? "event-present" : "event-absent",
           displayTime: `${formatTime(entry.timestart)} - ${formatTime(entry.timeend)}`,
         }));
-  
+
         setEvents(eventData);
       } else {
         console.error("Dữ liệu calendarEntries không phải mảng");
@@ -69,8 +69,8 @@ const ClientCalendar = () => {
       console.error("Error fetching calendar data:", error);
     }
   };
-  
-  
+
+
 
   useEffect(() => {
     fetchCalendarData();
@@ -82,36 +82,37 @@ const ClientCalendar = () => {
   };
 
   return (
-<div style={{ maxWidth: "1300px",maxHeight:"800px" , margin: "0 auto" }}>
+    <div className="calendar-container">
       <h1 style={{ textAlign: "center" }}>Client Calendar</h1>
       <FullCalendar
-  plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-  initialView="timeGridWeek" // Hoặc timeGridDay nếu chỉ hiển thị 1 ngày
-  headerToolbar={{
-    left: "prev,next today",
-    center: "title",
-    right: "dayGridMonth,timeGridWeek,timeGridDay",
-  }}
-  slotMinTime="07:00:00" // Bắt đầu từ 7 AM
-  slotMaxTime="22:00:00" // Kết thúc lúc 10 PM
-  allDaySlot={false} // Tắt "All Day" slot
-  events={events}
-  editable={false}
-  selectable={true}
-  eventClassNames={eventClassNames} // Tùy chỉnh className
-  slotLabelFormat={{
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true, // Hiển thị định dạng 12 giờ (am/pm)
-  }}
-  eventTimeFormat={{
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true, // Hiển thị định dạng 12 giờ (am/pm)
-  }}
-/>
-
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        initialView="timeGridWeek"
+        headerToolbar={{
+          left: "prev,next today",
+          center: "title",
+          right: "dayGridMonth,timeGridWeek,timeGridDay",
+        }}
+        slotMinTime="07:00:00"
+        slotMaxTime="22:00:00"
+        allDaySlot={false}
+        events={events}
+        editable={false}
+        selectable={true}
+        eventClassNames={eventClassNames}
+        slotLabelFormat={{
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        }}
+        eventTimeFormat={{
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        }}
+      />
     </div>
+
+
   );
 };
 

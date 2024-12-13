@@ -114,8 +114,8 @@ const ApprovedPrograms = () => {
   }
 
   return (
-    <Container>
-      <h2>Approved Programs</h2>
+    <Container style={{ paddingTop: "90px !important" }}>
+      <h2>Programs</h2>
       {programs.map((program, index) => (
         <div key={index} className="program-section">
           <h3>

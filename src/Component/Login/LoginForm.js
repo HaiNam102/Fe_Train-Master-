@@ -41,7 +41,7 @@ const LoginForm = () => {
           navigate("/Admins"); // Điều hướng đến trang admin nếu role là admin, personal_trainer, hoặc fitness_manager
         } else if (userRole === "Client") {
           toast.success("Đăng nhập thành công!!!");
-          navigate("/Clients/Calendar");
+          navigate("/Home");
         }
       }
     } catch (error) {

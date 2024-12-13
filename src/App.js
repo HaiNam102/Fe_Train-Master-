@@ -2,12 +2,15 @@ import './App.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoginForm from './Component/Login/LoginForm';
+import Home from './Component/Client/Home/Home';
+import Navbar from './Component/Client/Home/Navbar';
+import ClientRoutes from './Component/routes/ClientRoutes';
 const App = () => {
   return (
     <div>
       <div className="App">
-        <LoginForm />
-
+        <Home />
+        <ClientRoutes />
         <ToastContainer
           position="top-right"
           autoClose={1000}
