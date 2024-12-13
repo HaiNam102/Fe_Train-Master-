@@ -23,10 +23,9 @@ import Register_Client from './Component/Login/Register_Client';
 import ForgotPassword from './Component/Login/ForgotPassword';
 import ResetPassword from './Component/Login/ResetPassword';
 import Calendar from './Component/Admin/Content/Calendar/ManagerCalendar';
-import CalendarForm from './Component/Client/Content/Calendar/ClientCalendar';
-
-
-
+import ClientTrackings from './Component/Client/ClientTracking/Tracking'
+import ClientMeal from './Component/Client/Mealplan/MealPlanComponent'
+import ClientProgram from './Component/Client/Program/ProgramComponent'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
@@ -38,8 +37,9 @@ root.render(
         <Route path="/Register_Client" element={<Register_Client/>} />
         <Route path="/Forgot-password" element={<ForgotPassword/>} />
         <Route path="/reset-password" element={<ResetPassword/>} /> 
-        <Route path="/Register" element={<Register/>} />
-        <Route path="/Clients/Calendar" element={<CalendarForm />} /> 
+        <Route path="/Client-Tracking" element={<ClientTrackings/>} /> 
+        <Route path="/Client-Meal" element={<ClientMeal/>} /> 
+        <Route path="/Client-Program" element={<ClientProgram/>} /> 
         <Route path="/Admins" element={<Admin/>} >
           <Route index element={<DashBoard />} />
           <Route path='DashBoard' element={<DashBoard />} />

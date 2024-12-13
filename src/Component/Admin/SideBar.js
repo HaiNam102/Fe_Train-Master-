@@ -126,7 +126,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
           </MenuItem>
         </SubMenu>
 
-        <MenuItem
+        {/* <MenuItem
           icon={<i className="fa fa-calendar fa-2x"></i>}
           style={{ marginBottom: 30 }}
         >
@@ -152,25 +152,29 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
           onClick={handleShowModal}
         >
           Logout
+        </MenuItem> */}
+       <MenuItem
+          icon={<i className="fa fa-calendar fa-2x"></i>}
+          style={{ marginBottom: 30 }}
+        >
+          <Link to="/Admins/Calendar" className="nav-text">
+            Calendar
+          </Link>
         </MenuItem>
-        {/*
-                <MenuItem icon={<i className="fa fa-calendar fa-2x"></i>} style={{ marginBottom: 30 }}>
-                    <Link to="#" className="nav-text">Calendar</Link>
-                </MenuItem>
-                <MenuItem icon={<i className="fa fa-male fa-2x"></i>} style={{ marginBottom: 60 }}>
-                    <Link to="/Admins/ClientTracking" className="nav-text">Client Tracking</Link>
-                </MenuItem>
-                <MenuItem icon={<i className="fa fa-registered fa-2x"></i>} style={{ marginBottom: 2 }}>
-                    <Link to="/Admins/Register" className="nav-text">Register Admin</Link>
-                </MenuItem>
-                <MenuItem icon={<i className="fa fa-user fa-2x"></i>}>
-                    <Link to="/Admins/InfoUser" className="nav-text">Profile</Link>
-                </MenuItem>
-                <MenuItem icon={<i className="fa fa-sign-out fa-2x"></i>} onClick={handleShowModal}>
-                    Logout
-                </MenuItem>
-                {/*
-                <SubMenu title="Client Information" icon={<i className="fa fa-info-circle fa-2x"></i>}>
+        <MenuItem icon={<i className="fa fa-male fa-2x"></i>} style={{ marginBottom: 60 }}>
+          <Link to="/Admins/ClientTracking" className="nav-text">Client Tracking</Link>
+        </MenuItem>
+        <MenuItem icon={<i className="fa fa-registered fa-2x"></i>} style={{ marginBottom: 2 }}>
+          <Link to="/Admins/Register" className="nav-text">Register Admin</Link>
+        </MenuItem>
+        <MenuItem icon={<i className="fa fa-user fa-2x"></i>}>
+          <Link to="/Admins/InfoUser" className="nav-text">Profile</Link>
+        </MenuItem>
+        <MenuItem icon={<i className="fa fa-sign-out fa-2x"></i>} onClick={handleShowModal}>
+          Logout
+        </MenuItem>
+
+        {/* <SubMenu title="Client Information" icon={<i className="fa fa-info-circle fa-2x"></i>}>
                     <MenuItem icon={<i className="fa fa-info-circle fa-2x"></i>}>
                         <Link to="#" className="nav-text">Client Information</Link>
                     </MenuItem>
@@ -180,7 +184,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
                     <MenuItem icon={<i className="fa fa-info-circle fa-2x"></i>}>
                         <Link to="#" className="nav-text">Fitness Manager Information</Link>
                     </MenuItem>
-                </SubMenu> */}
+                </SubMenu>  */}
       </Menu>
       <Logout
         showModal={showModal}

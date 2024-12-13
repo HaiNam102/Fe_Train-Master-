@@ -71,9 +71,9 @@ function UpdateTracking({ show, setShow, trackingId, onUpdate }) {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>; // Hiển thị khi đang tải dữ liệu
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>; // Hiển thị khi đang tải dữ liệu
+  // }
 
   return (
     <Modal show={show} onHide={() => setShow(false)} size="lg" backdrop="static">

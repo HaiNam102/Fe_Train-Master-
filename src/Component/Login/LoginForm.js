@@ -41,7 +41,7 @@ const LoginForm = () => {
           navigate("/Admins"); // Điều hướng đến trang admin nếu role là admin, personal_trainer, hoặc fitness_manager
         } else if (userRole === "Client") {
           toast.success("Đăng nhập thành công!!!");
-          navigate("/Clients/Calendar");  
+          navigate("/Clients/Calendar");
         }
       }
     } catch (error) {
@@ -72,21 +72,15 @@ const LoginForm = () => {
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form onSubmit={handleLogin}>
-                      <div className="d-flex align-items-center mb-3 pb-1">
-                        <i
-                          className="fas fa-cubes fa-2x me-3"
-                          style={{ color: "#ff6219" }}
-                        ></i>
-                        <span className="h1 fw-bold mb-0">Logo</span>
-                      </div>
-
-                      <h5
-                        className="fw-normal mb-3 pb-3"
+                      <h1
+                        className="fw-normal mb-3 pb-3 mx-auto"
                         style={{ letterSpacing: "1px" }}
                       >
-                        Sign into your account
-                      </h5> */
-
+                        Login
+                      </h1>
+                      <label className="form-label" htmlFor="form2Example17">
+                        User name
+                      </label>
                       <div className="form-outline mb-4">
                         <input
                           type="text"
@@ -97,11 +91,10 @@ const LoginForm = () => {
                           className="form-control form-control-lg"
                           required
                         />
-                        <label className="form-label" htmlFor="form2Example17">
-                          User name
-                        </label>
                       </div>
-
+                      <label className="form-label" htmlFor="form2Example27">
+                        Password
+                      </label>
                       <div className="form-outline mb-4">
                         <input
                           type="password"
@@ -112,9 +105,7 @@ const LoginForm = () => {
                           className="form-control form-control-lg"
                           required
                         />
-                        <label className="form-label" htmlFor="form2Example27">
-                          Password
-                        </label>
+
                       </div>
 
                       <div className="pt-1 mb-4">
@@ -135,12 +126,7 @@ const LoginForm = () => {
                           Register here
                         </a>
                       </p>
-                      <a href="#!" className="small text-muted">
-                        Terms of use.
-                      </a>
-                      <a href="#!" className="small text-muted">
-                        Privacy policy
-                      </a>
+
                     </form>
                   </div>
                 </div>

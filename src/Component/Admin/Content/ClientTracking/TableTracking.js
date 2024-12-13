@@ -9,7 +9,6 @@ import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const TableTracking = ({ refresh }) => {
   const [trackingData, setTrackingData] = useState([]);
-  const [clientNames, setClientNames] = useState({}); // Lưu tên client
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 4;
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -28,42 +27,9 @@ const TableTracking = ({ refresh }) => {
       const response = await axiosInstance.get(
         "http://localhost:8080/clientstracking/getAllClientsTracking"
       );
-      const trackingData = response.data;
-      setTrackingData(trackingData);
-
-      // Lấy danh sách ID client
-      const clientIds = trackingData
-        .map((item) => item.client?.clientId)
-        .filter(Boolean);
-      const uniqueClientIds = [...new Set(clientIds)]; // Loại bỏ ID trùng lặp
-
-      // Gọi API lấy tên client cho từng ID
-      const clientNamePromises = uniqueClientIds.map((id) =>
-        fetchClientName(id).then((name) => ({ id, name }))
-      );
-
-      const resolvedClientNames = await Promise.all(clientNamePromises);
-      const clientNameMap = resolvedClientNames.reduce(
-        (acc, { id, name }) => ({ ...acc, [id]: name }),
-        {}
-      );
-
-      setClientNames(clientNameMap);
+      setTrackingData(response.data);
     } catch (error) {
       console.error("Error fetching tracking data:", error);
-    }
-  };
-
-  // Lấy tên client từ API
-  const fetchClientName = async (clientId) => {
-    try {
-      const response = await axiosInstance.get(
-        `http://localhost:8080/client/firstName/${clientId}`
-      );
-      return response.data.firstName; // Giả sử API trả về tên client
-    } catch (error) {
-      console.error(`Error fetching client name for ID ${clientId}:`, error);
-      return "Unknown Client";
     }
   };
 
@@ -115,9 +81,7 @@ const TableTracking = ({ refresh }) => {
             {currentTrackingData.map((tracking) => (
               <tr key={tracking.trackingId}>
                 <td>{tracking.trackingId}</td>
-                <td>
-                  <td>{`${tracking.client.firstName}`}</td>
-                </td>
+                <td>{tracking.client.firstName || "Unknown Client"}</td>
                 <td>{tracking.date}</td>
                 <td>{tracking.weight}</td>
                 <td>{tracking.sleepHour}</td>
