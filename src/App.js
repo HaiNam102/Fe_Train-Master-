@@ -17,7 +17,7 @@ const App = () => {
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
-          rtl={false}
+          rtl={false} 
           pauseOnFocusLoss
           draggable
           pauseOnHover

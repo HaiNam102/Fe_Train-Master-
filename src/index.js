@@ -25,26 +25,28 @@ import Calendar from './Component/Admin/Content/Calendar/ManagerCalendar';
 import ClientTrackings from './Component/Client/ClientTracking/Tracking'
 import ClientMeal from './Component/Client/Mealplan/MealPlanComponent'
 import ClientProgram from './Component/Client/Program/ProgramComponent'
-import ClientRoutes1 from './Component/routes/ClientRoutes1';
+import ClientRoutes from './Component/routes/ClientRoutes';
 import Home from './Component/Client/Home/Home';
 import ClientCalendar from './Component/Client/Calendar/ClientCalendar'
-
+import Profile from './Component/Client/Profile/Profile';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
+
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/Login" element={<LoginForm />} />
       <Route path="/Register_Client" element={<Register_Client />} />
       <Route path="/Forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-      <Route path="/Home" element={<ClientRoutes1/>}>
+      <Route path="/Home" element={<ClientRoutes />}>
         <Route path="" element={<Home />} />
         <Route path="Tracking" element={<ClientTrackings />} />
         <Route path="Program" element={<ClientProgram />} />
         <Route path="MealPlan" element={<ClientMeal />} />
         <Route path="Calendar" element={<ClientCalendar />} />
+        <Route path="Profile" element={<Profile />} />
       </Route>
       <Route path="/Admins" element={<Admin />} >
         <Route index element={<DashBoard />} />

@@ -2,3 +2,21 @@
 ul {
   margin: 0 !important;
 }
+li {
+   list-style: none;
+}
+
+.profile-client {
+    li {
+       display: flex;
+       justify-content: space-between;
+      a {
+
+         text-decoration: none;
+      }
+      &:hover {
+        background-color: white;
+        color: red;
+      }
+   }
+}

@@ -13,6 +13,7 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+ 
     if (!username || !password) {
       toast.error("Vui lòng điền đầy đủ thông tin!");
       return;
@@ -23,7 +24,8 @@ const LoginForm = () => {
         "http://localhost:8080/api/auth/login",
         { username, password }
       );
-
+     console.log(response);
+   
       if (response.data.jwt) {
         localStorage.setItem("token", response.data.jwt);
 
@@ -88,8 +90,7 @@ const LoginForm = () => {
                           value={username}
                           onChange={(e) => setUsername(e.target.value)}
                           autoComplete="username"
-                          className="form-control form-control-lg"
-                          required
+                          className="form-control form-control-lg"                       
                         />
                       </div>
                       <label className="form-label" htmlFor="form2Example27">
@@ -103,7 +104,6 @@ const LoginForm = () => {
                           onChange={(e) => setPassword(e.target.value)}
                           autoComplete="current-password"
                           className="form-control form-control-lg"
-                          required
                         />
 
                       </div>
