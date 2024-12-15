@@ -1,0 +1,83 @@
+.features_area {
+    background-color: #010101;
+    padding: 120px 0;
+
+    .section_title {
+        margin-bottom: 60px;
+
+        h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #777;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    }
+
+    .single_feature {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            background-color: #f9f9f9;  // Thêm hiệu ứng hover cho nền
+        }
+
+        .icon {
+            margin-bottom: 20px;
+            
+            img {
+                max-width: 60px;
+                height: auto;
+            }
+        }
+
+        h4 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+        }
+
+        p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    }
+
+    // Điều chỉnh cho màn hình nhỏ hơn
+    @media (max-width: 992px) {
+        .single_feature {
+            margin-bottom: 30px;  // Thêm khoảng cách dưới cho các feature nhỏ hơn
+        }
+    }
+
+    @media (max-width: 768px) {
+        .single_feature {
+            padding: 20px;  // Điều chỉnh padding cho màn hình nhỏ
+
+            h4 {
+                font-size: 18px;  // Giảm kích thước chữ h4 ở màn hình nhỏ
+            }
+
+            p {
+                font-size: 13px;  // Giảm kích thước chữ p ở màn hình nhỏ
+            }
+        }
+    }
+}

@@ -879,60 +879,68 @@ ol {
   Gallery Section
 -----------------------*/
 
+/* Phần background và container gallery */
 .gallery-section {
-	background: #151515;
-	overflow: hidden;
+    background: #151515;
+    overflow: hidden;
 }
 
 .gallery-section.gallery-page {
-	padding-top: 10px;
+    padding-top: 10px;
 }
 
+/* Kích thước của các ảnh trong gallery */
 .grid-sizer {
-	width: calc(25% - 10px);
+    width: calc(25% - 10px);
 }
 
+/* Thêm margin-right cho toàn bộ gallery */
 .gallery {
-	margin-right: -10px;
+    margin-right: -10px;
 }
 
+/* Các phần tử trong gallery */
 .gallery .gs-item {
-	height: 472px;
-	width: calc(25% - 10px);
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 10px;
+    height: 472px;
+    width: calc(25% - 10px);
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.gallery .gs-item:hover .thumb-icon {
-	opacity: 1;
-	visibility: visible;
-}
-
+/* Hiển thị thumb-icon ngay lập tức (không ẩn nữa) */
 .gallery .gs-item .thumb-icon {
-	font-size: 48px;
-	color: #f36100;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	height: 100%;
-	cursor: pointer;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+    font-size: 48px;
+    color: #f36100;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+    opacity: 1; /* Hiển thị ngay */
+    visibility: visible; /* Hiển thị ngay */
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
-.gallery .gs-item.grid-wide {
-	width: calc(50% - 10px);
+/* Chỉ thêm hiệu ứng hover cho thumb-icon, để thay đổi hiệu ứng khi hover */
+.gallery .gs-item:hover .thumb-icon {
+    opacity: 1; /* Nếu cần hiệu ứng hover */
+    visibility: visible;
 }
+
+/* Thay đổi kích thước các phần tử grid-wide */
+.gallery .gs-item.grid-wide {
+    width: calc(50% - 10px);
+}
+
 
 /*---------------------
   Team Section

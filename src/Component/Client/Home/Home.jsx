@@ -1,14 +1,25 @@
 import React from 'react';
-import hero from "../../../assets/image/hero-1.jpg";
+import hero from "../../../assets/image/banner.png";
 import hero2 from "../../../assets/image/hero-2.jpg";
+import './Home.scss'
+import img1 from '../../../assets/svg_icon/1.svg'
+import img2 from '../../../assets/svg_icon/2.svg'
+import img3 from '../../../assets/svg_icon/3.svg'
+import img4 from '../../../assets/svg_icon/4.svg'
+import img5 from '../../../assets/gallery/gallery-1.jpg'
+import img6 from '../../../assets/gallery/gallery-2.jpg'
+import img7 from '../../../assets/gallery/gallery-3.jpg'
+import img8 from '../../../assets/gallery/gallery-4.jpg'
+import img9 from '../../../assets/gallery/gallery-5.jpg'
+import img10 from '../../../assets/gallery/gallery-6.jpg'
+import img11 from '../../../assets/gallery/gallery-7.jpg'
 function Home(props) {
     return (
         <div>
-            <div id="carouselExampleCaptions" class="carousel slide">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -36,44 +47,91 @@ function Home(props) {
                 </button>
             </div>
 
-            <section class="choseus-section spad">
+            <div class="features_area">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title">
-                                <span>Why chose us?</span>
-                                <h2>PUSH YOUR LIMITS FORWARD</h2>
+                        <div class="col-xl-12">
+                            <div class="section_title text-center mb-73">
+                                <h3>Our Features</h3>
+                                <p>There are many variations of passages of lorem Ipsum available, but the majority <br /> have suffered alteration.</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="cs-item">
-                                <span class="flaticon-034-stationary-bike"></span>
-                                <h4>Modern equipment</h4>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single_feature text-center mb-73">
+                                <div class="icon">
+                                    <img src={img1} alt="" />
+                                </div>
+                                <h4>Weightlifting</h4>
+                                <p>There are many variations of passages of lorem Ipsum available.</p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="cs-item">
-                                <span class="flaticon-033-juice"></span>
-                                <h4>Healthy nutrition plan</h4>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single_feature text-center">
+                                <div class="icon">
+                                    <img src={img2} alt="" />
+                                </div>
+                                <h4>Specific Muscles</h4>
+                                <p>There are many variations of passages of lorem Ipsum available.</p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="cs-item">
-                                <span class="flaticon-002-dumbell"></span>
-                                <h4>Proffesponal training plan</h4>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single_feature text-center">
+                                <div class="icon">
+                                    <img src={img3} alt="" />
+                                </div>
+                                <h4>Flex Your Muscles</h4>
+                                <p>There are many variations of passages of lorem Ipsum available.</p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="cs-item">
-                                <span class="flaticon-014-heart-beat"></span>
-                                <h4>Unique to your needs</h4>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single_feature text-center">
+                                <div class="icon">
+                                    <img src={img4} alt="" />
+                                </div>
+                                <h4>Cardio Exercises</h4>
+                                <p>There are many variations of passages of lorem Ipsum available.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="gallery-section">
+                <div class="gallery">
+                    <div class="grid-sizer"></div>
+                    <div class="gs-item grid-wide">
+                        <a href={img5} class="thumb-icon image-popup">
+                            <img src={img5} alt="Gallery Image"/>
+                        </a>
+                    </div>
+                    <div class="gs-item">
+                        <a href="img/gallery/gallery-2.jpg" class="thumb-icon image-popup">
+                            <img src={img6} alt="Gallery Image"/>
+                        </a>
+                    </div>
+                    <div class="gs-item">
+                        <a href="img/gallery/gallery-3.jpg" class="thumb-icon image-popup">
+                            <img src={img7} alt="Gallery Image"/>
+                        </a>
+                    </div>
+                    <div class="gs-item">
+                        <a href="img/gallery/gallery-4.jpg" class="thumb-icon image-popup">
+                            <img src={img8} alt="Gallery Image"/>
+                        </a>
+                    </div>
+                    <div class="gs-item">
+                        <a href="img/gallery/gallery-5.jpg" class="thumb-icon image-popup">
+                            <img src={img9} alt="Gallery Image"/>
+                        </a>
+                    </div>
+                    <div class="gs-item grid-wide">
+                        <a href="img/gallery/gallery-6.jpg" class="thumb-icon image-popup">
+                            <img src={img10} alt="Gallery Image"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <section class="team-section spad">
                 <div class="container">
