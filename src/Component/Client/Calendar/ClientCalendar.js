@@ -40,13 +40,13 @@ const ClientCalendar = () => {
     }
   };
 
-
-
   // Lấy dữ liệu lịch từ server
   const fetchCalendarData = async () => {
     try {
-      const response = await axiosInstance.get("http://localhost:8080/calendar/getCalendarByUN");
-      console.log(response.data);  // Kiểm tra cấu trúc của dữ liệu trả về
+      const response = await axiosInstance.get(
+        "http://localhost:8080/calendar/getCalendarByUN"
+      );
+      console.log(response.data); // Kiểm tra cấu trúc của dữ liệu trả về
 
       // Kiểm tra xem calendarEntries có phải là mảng không
       if (Array.isArray(response.data.calendarEntries)) {
@@ -57,7 +57,9 @@ const ClientCalendar = () => {
           end: `${entry.date}T${entry.timeend}`,
           attendanceStatus: entry.attendanceStatus,
           className: entry.attendanceStatus ? "event-present" : "event-absent",
-          displayTime: `${formatTime(entry.timestart)} - ${formatTime(entry.timeend)}`,
+          displayTime: `${formatTime(entry.timestart)} - ${formatTime(
+            entry.timeend
+          )}`,
         }));
 
         setEvents(eventData);
@@ -69,8 +71,6 @@ const ClientCalendar = () => {
       console.error("Error fetching calendar data:", error);
     }
   };
-
-
 
   useEffect(() => {
     fetchCalendarData();
@@ -85,34 +85,34 @@ const ClientCalendar = () => {
     <div className="calendar-container">
       <h1 style={{ textAlign: "center" }}>Client Calendar</h1>
       <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        initialView="timeGridWeek"
-        headerToolbar={{
-          left: "prev,next today",
-          center: "title",
-          right: "dayGridMonth,timeGridWeek,timeGridDay",
-        }}
-        slotMinTime="07:00:00"
-        slotMaxTime="22:00:00"
-        allDaySlot={false}
-        events={events}
-        editable={false}
-        selectable={true}
-        eventClassNames={eventClassNames}
-        slotLabelFormat={{
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: true,
-        }}
-        eventTimeFormat={{
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: true,
-        }}
-      />
+  plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+  initialView="timeGridWeek"
+  headerToolbar={{
+    left: "prev,next today",
+    center: "title",
+    right: "dayGridMonth,timeGridWeek,timeGridDay",
+  }}
+  slotMinTime="05:00:00"
+  slotMaxTime="24:00:00"
+  firstDay={1} /* Bắt đầu tuần từ Thứ Hai */
+  allDaySlot={false}
+  events={events}
+  editable={false}
+  selectable={true}
+  eventClassNames={eventClassNames}
+  slotLabelFormat={{
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }}
+  eventTimeFormat={{
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }}
+/>
+
     </div>
-
-
   );
 };
 
