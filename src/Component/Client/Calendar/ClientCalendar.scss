@@ -20,6 +20,7 @@
     border-radius: 10px; /* Bo góc mềm mại */
     background-color: white; /* Màu nền trắng */
     padding: 20px; /* Khoảng cách padding xung quanh */
+    height: 100%; 
   }
   /* Tăng chiều rộng hoặc chiều cao của ô sự kiện */
 .fc-event {
@@ -45,6 +46,11 @@
   max-height: 800px;
   margin: 0 auto;
   padding-bottom: 100px; /* Thêm khoảng cách dưới để tránh bị dính footer */
+  margin-bottom: 300px; /* Khoảng cách giữa calendar và footer */
+
 }
 
   
+.fc-timegrid-slot {
+  height: 500px; /* Đảm bảo chiều cao đồng nhất */
+}

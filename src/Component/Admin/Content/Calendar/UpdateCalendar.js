@@ -38,7 +38,7 @@ const UpdateCalendar = ({ selectedCalendar, refreshCalendar, onClose }) => {
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">View Calendar</h5>
+            <h5 className="modal-title">Update Calendar</h5>
             <button type="button" className="close" onClick={onClose}>
               <span>&times;</span>
             </button>
@@ -92,16 +92,37 @@ const UpdateCalendar = ({ selectedCalendar, refreshCalendar, onClose }) => {
               />
             </div>
 
-            {/* Attendance Status */}
-            <div className="form-group">
-              <label>Attendance Status</label>
-              <input
-                type="checkbox"
-                checked={attendanceStatus}
-                onChange={(e) => setAttendanceStatus(e.target.checked)}
-                style={{ backgroundColor: '#ffffff' }}
-              />
-            </div>
+{/* Roll Attendance */}
+<div className="form-group">
+  <label>Roll Attendance</label>
+  <div className="form-check">
+    <input
+      className="form-check-input"
+      type="radio"
+      name="attendanceStatus"
+      value="1"
+      checked={attendanceStatus === 1}
+      onChange={() => setAttendanceStatus(1)}
+    />
+    <label className="form-check-label">
+    Present
+    </label>
+  </div>
+  <div className="form-check">
+    <input
+      className="form-check-input"
+      type="radio"
+      name="attendanceStatus"
+      value="0"
+      checked={attendanceStatus === 0}
+      onChange={() => setAttendanceStatus(0)}
+    />
+    <label className="form-check-label">
+    Absent
+    </label>
+  </div>
+</div>
+
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" onClick={onClose}>
