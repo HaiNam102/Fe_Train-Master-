@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
 import Admin from './Component/Admin/Admin'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import DashBoard from './Component/Admin/Content/DashBoard';
+import DashBoard from './Component/Admin/Content/Overview/DashBoard';
 import Food from './Component/Admin/Content/Food/ManagerFood';
 import Exercise from './Component/Admin/Content/Exercise/ManagerExercise'
 import MealPlan from './Component/Admin/Content/MealPlan/ManagerMealPlan'
@@ -28,6 +28,7 @@ import ClientProgram from './Component/Client/Program/ProgramComponent'
 import ClientRoutes1 from './Component/routes/ClientRoutes1';
 import Home from './Component/Client/Home/Home';
 import ClientCalendar from './Component/Client/Calendar/ClientCalendar'
+import ClientRoutes from './Component/routes/ClientRoutes';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -39,6 +40,7 @@ root.render(
       <Route path="/Register_Client" element={<Register_Client />} />
       <Route path="/Forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/Home1" element={<ClientRoutes/>} />
       <Route path="/Home" element={<ClientRoutes1/>}>
         <Route path="" element={<Home />} />
         <Route path="Tracking" element={<ClientTrackings />} />

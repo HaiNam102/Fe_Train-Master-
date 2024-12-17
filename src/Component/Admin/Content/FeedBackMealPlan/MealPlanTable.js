@@ -11,7 +11,7 @@ const MealPlanTable = ({ mealPlans, onOpenModal, onReject }) => {
         foods: [],
       };
     }
-    acc[mealPlanID].foods.push(mealPlan); // Add food data to the grouped mealPlan
+    acc[mealPlanID].foods.push(mealPlan); 
     return acc;
   }, {});
 
@@ -30,7 +30,6 @@ const MealPlanTable = ({ mealPlans, onOpenModal, onReject }) => {
           <th>Carb</th>
           <th>Note</th>
           <th>Amount</th>
-          <th>Unit</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -41,25 +40,26 @@ const MealPlanTable = ({ mealPlans, onOpenModal, onReject }) => {
             return (
               <tr key={`${mealPlanGroup.mealPlanID}-${foodIndex}`}>
                 {isFirstRow && (
-                  <>
-                    <td rowSpan={mealPlanGroup.foods.length}>
-                      {mealPlanGroup.mealPlanID}
-                    </td>
-                    <td rowSpan={mealPlanGroup.foods.length}>
-                      {mealPlanGroup.day}
-                    </td>
-                    <td rowSpan={mealPlanGroup.foods.length}>
-                      {mealPlanGroup.session}
-                    </td>
-                  </>
+                  <td rowSpan={mealPlanGroup.foods.length}>
+                    {mealPlanGroup.mealPlanID}
+                  </td>
                 )}
-                <td>{food[3]}</td> {/* Food Name */}
-                <td>{food[4]}</td> {/* Protein */}
-                <td>{food[5]}</td> {/* Fat */}
-                <td>{food[6]}</td> {/* Carb */}
-                <td>{food[7]}</td> {/* Note */}
-                <td>{food[8]}</td> {/* Amount */}
-                <td>{food[9]}</td> {/* Unit */}
+                {isFirstRow && (
+                  <td rowSpan={mealPlanGroup.foods.length}>
+                    {mealPlanGroup.day}
+                  </td>
+                )}
+                {isFirstRow && (
+                  <td rowSpan={mealPlanGroup.foods.length}>
+                    {mealPlanGroup.session}
+                  </td>
+                )}
+                <td>{food[4]}</td> {/* Food Name */}
+                <td>{food[5]}</td> {/* Protein */}
+                <td>{food[6]}</td> {/* Fat */}
+                <td>{food[7]}</td> {/* Carb */}
+                <td>{food[8]}</td> {/* Note */}
+                <td>{food[9]}</td> {/* Amount */}
                 {isFirstRow && (
                   <td rowSpan={mealPlanGroup.foods.length}>
                     <button
@@ -68,7 +68,6 @@ const MealPlanTable = ({ mealPlans, onOpenModal, onReject }) => {
                     >
                       Approve
                     </button>
-
                     <button
                       className="btn btn-danger mx-3"
                       onClick={() => onReject(mealPlanGroup.mealPlanID)}

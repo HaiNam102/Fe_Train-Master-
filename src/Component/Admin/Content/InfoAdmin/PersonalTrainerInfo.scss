@@ -1,0 +1,41 @@
+.personal-trainer-info {
+    font-family: 'Arial', sans-serif;
+    margin-top: 30px;
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .btn-success {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .form-select {
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .row {
+        margin-bottom: 15px;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .mb-4 {
+        margin-bottom: 40px !important;
+    }
+}

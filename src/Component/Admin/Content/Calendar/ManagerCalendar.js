@@ -92,7 +92,7 @@ const ManagerCalendar = () => {
                 <td>{calendar.date}</td>
                 <td>{calendar.timestart}</td>
                 <td>{calendar.timeend}</td>
-                <td>{`${calendar.client.firstName} ${calendar.client.lastName}`}</td>
+                <td>{`${calendar.client.firstName}`}</td>
                 <td>
                   <input
                     type="checkbox"

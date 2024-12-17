@@ -16,8 +16,8 @@ const Logout = ({ showModal, handleClose, handleLogout }) => {
           </button>
           <button
             onClick={() => {
-              handleLogout(); // Gọi handleLogout khi xác nhận
-              handleClose(); // Đóng modal
+              handleLogout(); 
+              handleClose(); 
             }}
             className="btn btn-primary"
           >
