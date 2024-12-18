@@ -28,26 +28,29 @@ const LoginForm = () => {
         localStorage.setItem("token", response.data.jwt);
 
         const decodedToken = jwtDecode(response.data.jwt);
-        const userRole = decodedToken.role; // Lấy role từ payload trong token
+        const userRole = decodedToken.role; 
 
-        console.log(userRole); // Kiểm tra xem role có đúng không
+        console.log(userRole); 
 
         if (
           userRole === "Owner" ||
           userRole === "Personal_Trainer" ||
           userRole === "Fitness_Manager"
         ) {
-          toast.success("Đăng nhập thành công vào trang admin!");
-          navigate("/Admins"); // Điều hướng đến trang admin nếu role là admin, personal_trainer, hoặc fitness_manager
+          // toast.success();
+          alert("Đăng nhập thành công vào trang admin!");
+          navigate("/Admins"); 
         } else if (userRole === "Client") {
-          toast.success("Đăng nhập thành công!!!");
+          // toast.success();
+          alert("Đăng nhập thành công!!!");
           navigate("/Home");
         }
       }
     } catch (error) {
-      toast.error(
-        "Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu!"
-      );
+      // toast.error(
+      //   "Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu!"
+      // );
+      alert("Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu!")
     }
   };
 
