@@ -52,7 +52,7 @@ const ClientCalendar = () => {
       if (Array.isArray(response.data.calendarEntries)) {
         const eventData = response.data.calendarEntries.map((entry) => ({
           id: entry.calendarId.toString(),
-          title: `${entry.attendanceStatus ? "Có mặt" : "Vắng mặt"}`,
+          title: `${entry.attendanceStatus ? "Present" : "Absent"}`,
           start: `${entry.date}T${entry.timestart}`,
           end: `${entry.date}T${entry.timeend}`,
           attendanceStatus: entry.attendanceStatus,
@@ -83,7 +83,9 @@ const ClientCalendar = () => {
 
   return (
     <div className="calendar-container">
-      <h1 style={{ textAlign: "center" }}>Client Calendar</h1>
+      <div className="calendar-header">
+        <h1 style={{ textAlign: "center" }}>Client Calendar</h1>
+      </div>
       <FullCalendar
   plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
   initialView="timeGridWeek"
@@ -110,9 +112,18 @@ const ClientCalendar = () => {
     minute: "2-digit",
     hour12: true,
   }}
-/>
-
-    </div>
+  />
+    <div className="legend">
+        <h3>Color Legend on Calendar</h3>
+        <div className="legend-item">
+          <span className="color-box present"></span>- Present
+        </div>
+        <div className="legend-item">
+          <span className="color-box absent"></span>- Absent
+        </div>
+      </div>
+  </div>
+  
   );
 };
 

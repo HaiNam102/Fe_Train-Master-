@@ -43,14 +43,69 @@
   }
   .calendar-container {
   max-width: 1300px;
-  max-height: 800px;
-  margin: 0 auto;
+  max-height: 1250px;
+  margin: 20px auto ;
   padding-bottom: 100px; /* Thêm khoảng cách dưới để tránh bị dính footer */
-  margin-bottom: 300px; /* Khoảng cách giữa calendar và footer */
+  border: 2px solid #ccc; /* Viền bao quanh toàn bộ khung */
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 7px;
+  .calendar-header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f0f0f0;
+    border-radius: 9px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    margin-bottom: 10px;
+  }
 
 }
 
   
 .fc-timegrid-slot {
   height: 500px; /* Đảm bảo chiều cao đồng nhất */
+}
+.legend {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  flex-direction: column; /* Sắp xếp các phần tử con theo cột */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  justify-content: center; /* Căn giữa theo chiều dọc nếu cần */
+
+  
+  h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center; /* Căn giữa tiêu đề */
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center; /* Căn giữa dọc các phần tử trong một hàng */
+    justify-content: center; /* Căn giữa ngang nội dung */
+    margin-bottom: 5px;
+
+    .color-box {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+
+    .present {
+      background-color: #0d63ba; /* Màu xanh đậm */
+      width: 10%;
+      margin-left: 2.5px;
+    }
+
+    .absent {
+      background-color: #3788d8; /* Màu xanh nhạt */
+      width: 10%;
+    }
+  }
 }
