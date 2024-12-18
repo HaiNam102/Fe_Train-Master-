@@ -11,7 +11,7 @@ const ProgramTable = ({ programs, onOpenModal, onReject }) => {
         exercises: [],
       };
     }
-    acc[programID].exercises.push(program); // Add exercise data to the grouped program
+    acc[programID].exercises.push(program); 
     return acc;
   }, {});
 
@@ -52,12 +52,12 @@ const ProgramTable = ({ programs, onOpenModal, onReject }) => {
                     </td>
                   </>
                 )}
-                <td>{exercise[4]}</td> {/* Exercise Name */}
-                <td>{exercise[5]}</td> {/* Sets */}
-                <td>{exercise[6]}</td> {/* Reps */}
-                <td>{exercise[7]}</td> {/* Tempo */}
-                <td>{exercise[8]}</td> {/* Load */}
-                <td>{exercise[9]}</td> {/* RIR/RPE */}
+                <td>{exercise[3]}</td> {/* Exercise Name */}
+                <td>{exercise[4]}</td> {/* Sets */}
+                <td>{exercise[5]}</td> {/* Reps */}
+                <td>{exercise[6]}</td> {/* Tempo */}
+                <td>{exercise[7]}</td> {/* Load */}
+                <td>{exercise[8]}</td> {/* RIR/RPE */}
                 {isFirstRow && (
                   <td rowSpan={programGroup.exercises.length}>
                     <button

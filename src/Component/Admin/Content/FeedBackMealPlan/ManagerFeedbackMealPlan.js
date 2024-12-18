@@ -16,12 +16,12 @@ const ManagerFeedBackMealPlan = () => {
     feedback: "",
   });
 
-  const token = localStorage.getItem('token');  // Replace 'token' with the key you're using to store the token
+  const token = localStorage.getItem('token');  
 
   // Set up axios headers with token
   const axiosInstance = axios.create({
     headers: {
-      Authorization: `Bearer ${token}`  // Include the token in the Authorization header
+      Authorization: `Bearer ${token}`  
     }
   });
 
@@ -39,13 +39,13 @@ const ManagerFeedBackMealPlan = () => {
       });
   }, []);
 
-  // Open modal
+
   const openModal = (mealPlanID) => {
     setSelectedMealPlan(mealPlanID);
     setIsModalOpen(true);
   };
 
-  // Close modal
+ 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedMealPlan(null);

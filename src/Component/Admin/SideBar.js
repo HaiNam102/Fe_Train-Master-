@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import "react-pro-sidebar/dist/css/styles.css"; // Import CSS của ProSidebar
+import "react-pro-sidebar/dist/css/styles.css"; 
 import img from "../../assets/image/admin.png";
 import "./SideBar.scss";
 import { useEffect } from "react";
@@ -9,8 +9,8 @@ import Logout from "../Login/Logout";
 
 const SideBar = ({ isOpen, toggleSidebar }) => {
   const [isFeedBackOpen, setFeedBackOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false); // Quản lý trạng thái hiển thị modal
-  const [username, setUsername] = useState(""); // State để lưu username
+  const [showModal, setShowModal] = useState(false); 
+  const [username, setUsername] = useState(""); 
   const navigate = useNavigate();
 
   // Lấy username từ token
@@ -18,27 +18,27 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       try {
-        const payload = storedToken.split(".")[1]; // Giải mã JWT (Lấy phần payload)
-        const decodedPayload = JSON.parse(atob(payload)); // Giải mã base64
+        const payload = storedToken.split(".")[1]; 
+        const decodedPayload = JSON.parse(atob(payload)); 
 
-        setUsername(decodedPayload.sub); // Lấy username từ phần "sub" trong payload (thường là username)
+        setUsername(decodedPayload.sub); 
       } catch (error) {
         console.error("Lỗi parse token:", error);
-        setUsername(null); // Đặt username về null nếu token không hợp lệ
+        setUsername(null); 
       }
     } else {
       console.warn("Không tìm thấy token trong localStorage");
-      setUsername(null); // Nếu không có token thì username là null
+      setUsername(null); 
     }
-  }, []); // Chạy khi component mount
+  }, []); 
 
   const handleClose = () => {
     setShowModal(false);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Xóa token khi đăng xuất
-    navigate("/login"); // Điều hướng về trang login
+    localStorage.removeItem("token");
+    navigate("/Home1"); 
   };
 
   const handleShowModal = () => {
@@ -101,7 +101,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
         </SubMenu>
 
         <SubMenu
-          title="Feedback"
+          title="Approve"
           icon={<i className="fa fa-map-marker fa-2x"></i>}
           open={isFeedBackOpen}
           onClick={handleFeedBackToggle}
@@ -113,7 +113,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
             style={{ marginBottom: 2 }}
           >
             <Link to="/Admins/FeedBackMealPlan" className="nav-text">
-              Feedback Meal Plan
+              Approve Meal Plan
             </Link>
           </MenuItem>
           <MenuItem
@@ -121,7 +121,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
             style={{ marginBottom: 2 }}
           >
             <Link to="/Admins/FeedBackProgram" className="nav-text">
-              Feedback Program
+              Approve Program
             </Link>
           </MenuItem>
         </SubMenu>
@@ -153,7 +153,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
         >
           Logout
         </MenuItem> */}
-       <MenuItem
+        <MenuItem
           icon={<i className="fa fa-calendar fa-2x"></i>}
           style={{ marginBottom: 30 }}
         >
@@ -165,7 +165,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
           <Link to="/Admins/ClientTracking" className="nav-text">Client Tracking</Link>
         </MenuItem>
         <MenuItem icon={<i className="fa fa-registered fa-2x"></i>} style={{ marginBottom: 2 }}>
-          <Link to="/Admins/Register" className="nav-text">Register Admin</Link>
+          <Link to="/Admins/Register" className="nav-text">Profile Form</Link>
         </MenuItem>
         <MenuItem icon={<i className="fa fa-user fa-2x"></i>}>
           <Link to="/Admins/InfoUser" className="nav-text">Profile</Link>
