@@ -28,7 +28,7 @@ import ClientProgram from './Component/Client/Program/ProgramComponent'
 import ClientRoutes from './Component/routes/ClientRoutes';
 import Home from './Component/Client/Home/Home';
 import ClientCalendar from './Component/Client/Calendar/ClientCalendar'
-import Profile from './Component/Client/Profile/Profile';
+import Profile from './Component/Client/Profile/ClientInfo';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
