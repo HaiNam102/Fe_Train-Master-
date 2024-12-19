@@ -134,11 +134,26 @@ const CreateMealPlanModal = ({ show, setShow, onAdd }) => {
 
           <Form.Group controlId="trainingStatus">
             <Form.Label>Training Status:</Form.Label>
-            <Form.Check
-              type="checkbox"
-              checked={trainingStatus}
-              onChange={() => setTrainingStatus(!trainingStatus)}
-            />
+            <div>
+              <Form.Check
+                type="radio"
+                id="present"
+                label="present"
+                name="trainingStatus"
+                value="true"
+                checked={trainingStatus === true}
+                onChange={() => setTrainingStatus(true)}
+              />
+              <Form.Check
+                type="radio"
+                id="absent"
+                label="absent"
+                name="trainingStatus"
+                value="false"
+                checked={trainingStatus === false}
+                onChange={() => setTrainingStatus(false)}
+              />
+            </div>
           </Form.Group>
           <br></br>
           <Form.Group controlId="day">

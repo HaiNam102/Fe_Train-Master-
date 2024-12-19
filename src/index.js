@@ -29,6 +29,7 @@ import ClientRoutes1 from './Component/routes/ClientRoutes1';
 import Home from './Component/Client/Home/Home';
 import ClientCalendar from './Component/Client/Calendar/ClientCalendar'
 import ClientRoutes from './Component/routes/ClientRoutes';
+import Profile from './Component/Client/Profile/ClientInfo.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -40,13 +41,16 @@ root.render(
       <Route path="/Register_Client" element={<Register_Client />} />
       <Route path="/Forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-      <Route path="/Home1" element={<ClientRoutes/>} />
-      <Route path="/Home" element={<ClientRoutes1/>}>
+      <Route path="/Home1" element={<ClientRoutes />} >
+        <Route path="" element={<Home />} />
+      </Route>
+      <Route path="/Home" element={<ClientRoutes1 />}>
         <Route path="" element={<Home />} />
         <Route path="Tracking" element={<ClientTrackings />} />
         <Route path="Program" element={<ClientProgram />} />
         <Route path="MealPlan" element={<ClientMeal />} />
         <Route path="Calendar" element={<ClientCalendar />} />
+        <Route path="Profile" element={<Profile />} />
       </Route>
       <Route path="/Admins" element={<Admin />} >
         <Route index element={<DashBoard />} />

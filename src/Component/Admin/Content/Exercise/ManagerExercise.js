@@ -35,7 +35,7 @@ const ManagerExercise = () => {
                         onClick={() => setShowModalCreateExercise(true)}
                         className="btn btn-primary"
                     >
-                        <FontAwesomeIcon icon={faPlus} /> Add Meal Plan
+                        <FontAwesomeIcon icon={faPlus} /> Add Exercise
                     </button>
                 </div>
                 <div className="spacing-large"></div>

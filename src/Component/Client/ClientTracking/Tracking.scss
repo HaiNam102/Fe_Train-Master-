@@ -1,110 +1,93 @@
-/* Tracking.scss */
-
-/* Main container */
 .tracking-container {
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-  
-  /* Left section (Table) */
-  .tracking-table-container {
-    flex: 1;
-    max-height: 400px;
-    overflow-y: auto;
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-  
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-  
-    th {
-      background-color: #f5f5f5;
-      font-weight: bold;
-    }
-  
-    td {
-      font-size: 14px;
-    }
-  
-    .no-data {
-      text-align: center;
-      color: #777;
-      font-style: italic;
-    }
-  }
-  
-  /* Right section (Chart) */
-  .tracking-chart-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Loading text for chart */
-  .chart-loading {
-    font-size: 16px;
-    color: #888;
-    text-align: center;
-  }
-  
-  /* Styling for the chart */
-  .chart-container {
-    position: relative;
-    height: 350px;  /* Adjust based on your preference */
-  }
-  
-  .chart-container .chart {
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* TableRow hover effect */
-  .table-row-hover:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Styling for the chart legends */
-  .chart-legend {
-    font-size: 12px;
-    margin-top: 10px;
-  }
-  
-  .chart-legend .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .chart-legend .legend-item .color-box {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #888;
-  }
-  
-  .chart-legend .legend-item span {
-    font-size: 14px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .tracking-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  padding: 10px;
+  background-color: #f0a55ada;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding-bottom: 30px;
+}
+
+.tracking-container > div {
+  width: 100%;
+}
+
+.tracking-table-container {
+  flex: 2;  
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tracking-table-container th, .tracking-table-container td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.tracking-table-container th {
+  background-color: #ed9135;
+  color: white;
+  font-weight: bold;
+}
+
+.tracking-table-container tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tracking-table-container tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.tracking-chart-container {
+  flex: 2; 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-chart-container p {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+
+@media (max-width: 1024px) {
+  .tracking-container {
       flex-direction: column;
-    }
-  
-    .tracking-table-container,
-    .tracking-chart-container {
-      flex: none;
-      width: 100%;
-    }
+      gap: 20px;
   }
-  
+
+  .tracking-table-container, .tracking-chart-container {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .tracking-chart-container {
+      flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .tracking-container {
+      padding: 15px;
+  }
+
+  .tracking-table-container, .tracking-chart-container {
+      margin-bottom: 15px;
+  }
+}

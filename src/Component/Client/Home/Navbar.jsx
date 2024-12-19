@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { menuClient } from '../../Contants';
 import logo_1 from "../../../assets/image/logo_1.jpg";
 function Navbar(props) {
-    const [isLogin, setIsLogin] = useState(false);
     const [isChoose,setIsChoose] = useState("Home");
     return (
         <div>

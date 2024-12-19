@@ -12,7 +12,6 @@ import img7 from '../../../assets/gallery/gallery-3.jpg'
 import img8 from '../../../assets/gallery/gallery-4.jpg'
 import img9 from '../../../assets/gallery/gallery-5.jpg'
 import img10 from '../../../assets/gallery/gallery-6.jpg'
-import img11 from '../../../assets/gallery/gallery-7.jpg'
 function Home(props) {
     return (
         <div>

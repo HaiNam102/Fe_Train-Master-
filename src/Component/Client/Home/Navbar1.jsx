@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { menuClient } from '../../Contants';
 import logo_1 from "../../../assets/image/logo_1.jpg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faRightFromBracket, faCircleUser, faBars, faSearch, faFacebook, faTwitter, faYoutubePlay, faInstagram, faClose } from '@fortawesome/free-solid-svg-icons';
+import Logout from '../../Login/Logout';
+
 function Navbar(props) {
-    const [isLogin, setIsLogin] = useState(false);
-    const [isChoose,setIsChoose] = useState("Home");
+    const [showModal, setShowModal] = useState(false);
+    const [profile, setProfile] = useState(false);
+    const [isChoose, setIsChoose] = useState("Home");
+    const navigate = useNavigate();
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+    const handleClose = () => {
+        setShowModal(false);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        navigate("/Home1");
+    };
     return (
         <div>
             <div class="offcanvas-menu-overlay"></div>
@@ -15,27 +32,6 @@ function Navbar(props) {
                 <div class="canvas-search search-switch">
                     <i class="fa fa-search"></i>
                 </div>
-                {/* <nav class="canvas-menu mobile-menu">
-                    <ul>
-                        <li><a href="./home">Home</a></li>
-                        <li><a href="./about-us">About Us</a></li>
-                        <li><a href="./classes">Classes</a></li>
-                        <li><a href="./services">Services</a></li>
-                        <li><a href="./team">Our Team</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="./about-us">About us</a></li>
-                                <li><a href="./class-timetable">Classes timetable</a></li>
-                                <li><a href="./bmi-calculator">Bmi calculate</a></li>
-                                <li><a href="./team">Our team</a></li>
-                                <li><a href="./gallery">Gallery</a></li>
-                                <li><a href="./blog">Our blog</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <div id="mobile-menu-wrap"></div> */}
                 <div class="canvas-social">
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -49,8 +45,7 @@ function Navbar(props) {
                         <div class="col-lg-3">
                             <div class="logo">
                                 <a href="./index.html">
-                                <img style={{ width: '100px', height: 'auto' }} src={logo_1} alt="Logo" />
-
+                                    <img style={{ width: '100px', height: 'auto' }} src={logo_1} alt="Logo" />
                                 </a>
                             </div>
                         </div>
@@ -58,21 +53,58 @@ function Navbar(props) {
                             <nav class="nav-menu">
                                 <ul className='d-flex justify-content-evenly' >
                                     {
-                                        menuClient.map((e,i) => (
+                                        menuClient.map((e, i) => (
                                             <Link className='text-white' onClick={() => setIsChoose(e.title)} to={e.path}>
-                                             <li class={isChoose === e.title ? "active" : ""}><a>{e.title}</a></li>
-                                           </Link> 
+                                                <li class={isChoose === e.title ? "active" : ""}><a>{e.title}</a></li>
+                                            </Link>
                                         ))
-                                    } 
+                                    }
                                 </ul>
                             </nav>
                         </div>
+                        <div className="col-lg-3 text-end">
+                            <div onClick={() => setProfile(!profile)} className="profile-client position-relative">
+                                <div className="d-flex align-items-center justify-content-end gap-3">
+                                    <h4 className="mb-0">Hello Nam !!</h4>
+                                    <i className="fa-regular fa-circle-user h3 m-0"></i>
+                                </div>
+                                {profile && (
+                                    <div className="position-absolute bg-black end-0 text-white rounded mt-1" style={{ zIndex: 1000 }}>
+                                        <ul className="list-unstyled">
+                                            <li className="d-flex align-items-center border-bottom border-light p-2">
+                                                <FontAwesomeIcon icon={faUser} style={{ marginRight: '7px' }} />
+                                                <Link to="/Home/Profile" style={{ textDecoration: 'none' }}>
+                                                    Profile
+                                                </Link>
+                                            </li>
+                                            <li className="d-flex align-items-center p-2">
+                                                <FontAwesomeIcon
+                                                    icon={faRightFromBracket}
+                                                    onClick={() => {
+                                                        handleShowModal();
+                                                    }}
+                                                    style={{ marginRight: '8px' }}
+                                                />
+                                                Logout
+                                            </li>
+                                        </ul>
+                                    </div>
+                                )}
+
+                            </div>
+                        </div>
+
                     </div>
                     <div class="canvas-open">
                         <i class="fa fa-bars"></i>
                     </div>
                 </div>
             </header>
+            <Logout
+                showModal={showModal}
+                handleClose={handleClose}
+                handleLogout={handleLogout}
+            />
         </div>
     );
 }

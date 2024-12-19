@@ -35,7 +35,7 @@ const ManagerFood = () => {
                         onClick={() => setShowModelCreateFood(true)}
                         className="btn btn-primary"
                     >
-                        <FontAwesomeIcon icon={faPlus} /> Add Meal Plan
+                        <FontAwesomeIcon icon={faPlus} /> Add Food
                     </button>
                 </div>
                 <div className="spacing-large"></div>

@@ -21,7 +21,7 @@ const ManagerTracking = () => {
                 <div className="d-flex align-items-center">
                     <img src={img} className="me-3" />
                     <h1 className="h4 fw-bold text-primary">
-                        Manager Feedback MealPlan
+                        Manager Feedback Tracking
                     </h1>
                 </div>
                 <div className="ms-auto">
@@ -35,7 +35,7 @@ const ManagerTracking = () => {
                         onClick={() => setShowModalCreateTracking(true)}
                         className="btn btn-primary"
                     >
-                        <FontAwesomeIcon icon={faPlus} /> Add Meal Plan
+                        <FontAwesomeIcon icon={faPlus} /> Add Tracking
                     </button>
                 </div>
                 <div className="spacing-large"></div>

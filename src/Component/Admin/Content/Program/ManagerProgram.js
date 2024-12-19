@@ -36,7 +36,7 @@ const ManagerProgram = () => {
                         onClick={() => setShowModalCreateProgram(true)}
                         className="btn btn-primary"
                     >
-                        <FontAwesomeIcon icon={faPlus} /> Add Meal Plan
+                        <FontAwesomeIcon icon={faPlus} /> Add Program
                     </button>
                 </div>
                 <div className="program-spacing-large"></div>

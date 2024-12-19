@@ -64,10 +64,10 @@ function ResetPassword() {
       }}
     >
       <div className="container mt-5">
-        <h1 className="text-center mb-4 text-white">Đặt lại mật khẩu</h1>
+        <h1 className="text-center mb-4 text-white">Change Password</h1>
         <form onSubmit={handleSubmit} className="mx-auto" style={{ maxWidth: "400px", backgroundColor: "rgba(0, 0, 0, 0.5)", padding: "20px", borderRadius: "8px" }}>
           <div className="mb-3">
-            <label htmlFor="newPassword" className="form-label text-white">Mật khẩu mới:</label>
+            <label htmlFor="newPassword" className="form-label text-white">New Password:</label>
             <input
               type="password"
               id="newPassword"
@@ -78,7 +78,7 @@ function ResetPassword() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="confirmPassword" className="form-label text-white">Xác nhận mật khẩu:</label>
+            <label htmlFor="confirmPassword" className="form-label text-white">Confirm Password:</label>
             <input
               type="password"
               id="confirmPassword"
@@ -88,7 +88,7 @@ function ResetPassword() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">Đặt lại mật khẩu</button>
+          <button type="submit" className="btn btn-primary w-100">Reset Password</button>
         </form>
       </div>
     </div>

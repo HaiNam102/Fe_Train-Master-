@@ -99,7 +99,7 @@ const ManagerFeedBackProgram = () => {
         <div className="d-flex align-items-center">
           <img src={img} className="me-3" />
           <h1 className="h4 fw-bold text-primary">
-            Manager Feedback MealPlan
+            Manager Approve Program
           </h1>
         </div>
         <div className="ms-auto">

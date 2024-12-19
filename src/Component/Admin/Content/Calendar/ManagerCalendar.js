@@ -24,7 +24,6 @@ const ManagerCalendar = () => {
     headers: token ? { Authorization: `Bearer ${token}` } : {},
   });
 
-  // Lấy dữ liệu lịch từ server
   const fetchCalendarData = async () => {
     try {
       const response = await axiosInstance.get(
@@ -42,12 +41,11 @@ const ManagerCalendar = () => {
   };
   const handleAttendanceChange = async (calendarId, status) => {
     try {
-      // Gửi request cập nhật attendanceStatus lên server
       await axiosInstance.put(
         `http://localhost:8080/calendar/updateAttendance/${calendarId}`,
-        { attendanceStatus: status } // Truyền trạng thái mới (1 hoặc 0)
+        { attendanceStatus: status }
       );
-      fetchCalendarData(); // Làm mới lại dữ liệu từ server
+      fetchCalendarData(); 
     } catch (error) {
       console.error("Error updating attendance status:", error);
     }
@@ -63,11 +61,11 @@ const ManagerCalendar = () => {
 
   const handleCloseModal = () => {
     setSelectedCalendar(null);
-    setShowCreateModal(false); // Đóng modal tạo mới
+    setShowCreateModal(false); 
   };
 
   const handleRefreshCalendar = () => {
-    fetchCalendarData(); // Làm mới danh sách lịch
+    fetchCalendarData(); 
   };
 
   return (
@@ -84,20 +82,17 @@ const ManagerCalendar = () => {
                 </div>
                 <p className="text-muted fs-5"></p>
             </div>
-      {/* Nút tạo mới */}
       <div className="d-flex justify-content-start mb-3">
         <button
           className="btn btn-primary"
           onClick={() => {
             setShowCreateModal(true);
           }}
-          // Mở modal tạo mới
         >
-          <FontAwesomeIcon icon={faPlus} /> Create Calendar
+          <FontAwesomeIcon icon={faPlus} /> Add Calendar
         </button>
       </div>
       <h4 style={{ textAlign: "center" }}>Calendar Management</h4>
-      {/* Bảng danh sách lịch */}
       <table className="table">
         <thead>
           <tr>
