@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from 'react-toastify';
+
 
 const CreateCalendar = ({ refreshCalendar, onClose }) => {
   const [date, setDate] = useState("");
@@ -56,6 +58,7 @@ const CreateCalendar = ({ refreshCalendar, onClose }) => {
       );
 
       if (response.status === 200) {
+        toast.success("Calendar created successfully");
         refreshCalendar(); // Refresh calendar list
         onClose(); // Close modal
       }

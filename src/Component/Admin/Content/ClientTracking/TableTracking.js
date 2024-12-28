@@ -27,6 +27,7 @@ const TableTracking = ({ refresh }) => {
       const response = await axiosInstance.get(
         "http://localhost:8080/clientstracking/getAllClientsTracking"
       );
+      console.log("Tracking data:", response.data); // Log dữ liệu
       setTrackingData(response.data);
     } catch (error) {
       console.error("Error fetching tracking data:", error);
