@@ -92,7 +92,12 @@ const ManagerFeedBackProgram = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
+  const vietnameseDate = new Date().toLocaleDateString("en-US", {
+    weekday: "long", // Hiển thị ngày trong tuần
+    year: "numeric", // Hiển thị năm
+    month: "long", // Hiển thị tháng đầy đủ
+    day: "numeric", // Hiển thị ngày
+  });
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center mb-4 bg-light p-4 rounded shadow">

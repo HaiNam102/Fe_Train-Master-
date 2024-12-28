@@ -14,7 +14,12 @@ const ManagerTracking = () => {
     const handleDataAdded = () => {
         setRefreshTable(!refreshTable); // Toggle the state to refresh TableTracking
     };
-
+    const vietnameseDate = new Date().toLocaleDateString("en-US", {
+        weekday: "long", // Hiển thị ngày trong tuần
+        year: "numeric", // Hiển thị năm
+        month: "long", // Hiển thị tháng đầy đủ
+        day: "numeric", // Hiển thị ngày
+      });
     return (
         <>
             <div className="d-flex justify-content-between align-items-center mb-4 bg-light p-4 rounded shadow">
