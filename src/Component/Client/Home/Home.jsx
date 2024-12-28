@@ -1,4 +1,3 @@
-import React from 'react';
 import hero from "../../../assets/image/banner.png";
 import hero2 from "../../../assets/image/hero-2.jpg";
 import './Home.scss'
@@ -12,7 +11,15 @@ import img7 from '../../../assets/gallery/gallery-3.jpg'
 import img8 from '../../../assets/gallery/gallery-4.jpg'
 import img9 from '../../../assets/gallery/gallery-5.jpg'
 import img10 from '../../../assets/gallery/gallery-6.jpg'
+import { FaCommentDots } from 'react-icons/fa';
+import React, { useState } from 'react';
+
 function Home(props) {
+    const [showChatbot, setShowChatbot] = useState(false);
+
+    const toggleChatbot = () => {
+        setShowChatbot(!showChatbot);
+    };
     return (
         <div>
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -101,32 +108,32 @@ function Home(props) {
                     <div class="grid-sizer"></div>
                     <div class="gs-item grid-wide">
                         <a href={img5} class="thumb-icon image-popup">
-                            <img src={img5} alt="Gallery Image"/>
+                            <img src={img5} alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gs-item">
                         <a href="img/gallery/gallery-2.jpg" class="thumb-icon image-popup">
-                            <img src={img6} alt="Gallery Image"/>
+                            <img src={img6} alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gs-item">
                         <a href="img/gallery/gallery-3.jpg" class="thumb-icon image-popup">
-                            <img src={img7} alt="Gallery Image"/>
+                            <img src={img7} alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gs-item">
                         <a href="img/gallery/gallery-4.jpg" class="thumb-icon image-popup">
-                            <img src={img8} alt="Gallery Image"/>
+                            <img src={img8} alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gs-item">
                         <a href="img/gallery/gallery-5.jpg" class="thumb-icon image-popup">
-                            <img src={img9} alt="Gallery Image"/>
+                            <img src={img9} alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gs-item grid-wide">
                         <a href="img/gallery/gallery-6.jpg" class="thumb-icon image-popup">
-                            <img src={img10} alt="Gallery Image"/>
+                            <img src={img10} alt="Gallery Image" />
                         </a>
                     </div>
                 </div>
@@ -227,6 +234,19 @@ function Home(props) {
                     </div>
                 </div>
             </div>
+            <div className="chatbot-icon" onClick={toggleChatbot}>
+                <FaCommentDots size={40} color="#007bff" />
+            </div>
+            {showChatbot && (
+                <div className="chatbot-popup">
+                    <iframe
+                        allow="microphone;"
+                        width="350"
+                        height="430"
+                        src="https://console.dialogflow.com/api-client/demo/embedded/cf5b2ce1-6776-4bdf-891f-acc61dff5ed2">
+                    </iframe>
+                </div>
+            )}
         </div>
     );
 }

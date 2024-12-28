@@ -5,12 +5,14 @@ import LoginForm from './Component/Login/LoginForm';
 import Home from './Component/Client/Home/Home';
 import Navbar from './Component/Client/Home/Navbar';
 import ClientRoutes from './Component/routes/ClientRoutes';
+import ChatBot from './Component/Client/ChatBot/ChatBot';
 const App = () => {
   return (
     <div>
       <div className="App">
         <Home />
         <ClientRoutes />
+        <ChatBot/>
         <ToastContainer
           position="top-right"
           autoClose={1000}

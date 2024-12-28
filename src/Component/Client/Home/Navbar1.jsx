@@ -20,7 +20,7 @@ function Navbar(props) {
 
     const handleLogout = () => {
         localStorage.removeItem("token");
-        navigate("/Home1");
+        navigate("/");
     };
     return (
         <div>

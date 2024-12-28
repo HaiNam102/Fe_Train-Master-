@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateMealPlan from './UpdateMealPlan';
-import DeleteMealPlan from './DeleteMealPlan'; // Import DeleteMealPlan component
-import ReactPaginate from 'react-paginate'; // Import ReactPaginate
+import DeleteMealPlan from './DeleteMealPlan';
+import ReactPaginate from 'react-paginate'; 
 import './style.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const TableMealPlan = ({ refresh }) => {
   const [mealPlans, setMealPlans] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0); // Changed to zero-indexed
+  const [currentPage, setCurrentPage] = useState(0); 
   const itemsPerPage = 4;
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false); 
@@ -18,7 +18,7 @@ const TableMealPlan = ({ refresh }) => {
   const [error, setError] = useState(null); 
 
   const fetchMealPlans = async () => {
-    setLoading(true); // Start loading
+    setLoading(true); 
     try {
       const token = localStorage.getItem('token');
       if (!token) {
@@ -31,13 +31,13 @@ const TableMealPlan = ({ refresh }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setMealPlans(response.data); // Update meal plans list
-      setError(null); // Clear error if request is successful
+      setMealPlans(response.data); 
+      setError(null); 
     } catch (error) {
       console.error('Error fetching meal plan data:', error);
-      setError('Error fetching meal plans'); // Set error message
+      setError('Error fetching meal plans'); 
     } finally {
-      setLoading(false); // End loading
+      setLoading(false); 
     }
   };
 
@@ -46,7 +46,7 @@ const TableMealPlan = ({ refresh }) => {
   }, [refresh]);
 
   const handleDataUpdated = () => {
-    fetchMealPlans(); // Refresh data when updated
+    fetchMealPlans(); 
   };
 
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
@@ -55,7 +55,7 @@ const TableMealPlan = ({ refresh }) => {
   const totalPages = Math.ceil(mealPlans.length / itemsPerPage);
 
   const handlePageChange = ({ selected }) => {
-    setCurrentPage(selected); // Set current page on pagination change
+    setCurrentPage(selected); 
   };
 
   const handleEditClick = (mealPlanId) => {
@@ -65,11 +65,11 @@ const TableMealPlan = ({ refresh }) => {
 
   const handleDeleteClick = (mealPlanId) => {
     setSelectedMealPlanId(mealPlanId);
-    setShowDeleteModal(true); // Show delete modal
+    setShowDeleteModal(true); 
   };
 
   const handleDeleteSuccess = () => {
-    fetchMealPlans(); // Refresh meal plans after deletion
+    fetchMealPlans(); 
   };
 
   return (
@@ -143,7 +143,6 @@ const TableMealPlan = ({ refresh }) => {
         </div>
       )}
 
-      {/* Pagination */}
       <ReactPaginate
         nextLabel="next >"
         onPageChange={handlePageChange}

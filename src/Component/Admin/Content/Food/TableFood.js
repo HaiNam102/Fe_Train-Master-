@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateFood from './UpdateFood';
 import DeleteFood from './DeleteFood';
-import ReactPaginate from 'react-paginate'; // Import ReactPaginate
-import './ManagerFood.scss'; // Ensure styles for ReactPaginate are consistent
+import ReactPaginate from 'react-paginate'; 
+import './ManagerFood.scss'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 const TableFood = ({ refresh }) => {
   const [foods, setFoods] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0); // Zero-indexed for ReactPaginate
+  const [currentPage, setCurrentPage] = useState(0); 
   const itemsPerPage = 4;
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedFoodId, setSelectedFoodId] = useState(null);
@@ -49,7 +49,7 @@ const TableFood = ({ refresh }) => {
   const totalPages = Math.ceil(foods.length / itemsPerPage);
 
   const handlePageChange = ({ selected }) => {
-    setCurrentPage(selected); // Update current page
+    setCurrentPage(selected); 
   };
 
   const handleEditClick = (foodId) => {
@@ -98,7 +98,6 @@ const TableFood = ({ refresh }) => {
                       <FontAwesomeIcon icon={faTrashAlt} />
                     </button>
                   </DeleteFood>
-
                 </td>
               </tr>
             ))}
@@ -106,7 +105,6 @@ const TableFood = ({ refresh }) => {
         </table>
       </div>
 
-      {/* Pagination */}
       <ReactPaginate
         nextLabel="next >"
         onPageChange={handlePageChange}

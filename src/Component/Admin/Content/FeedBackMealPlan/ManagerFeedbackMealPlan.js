@@ -64,8 +64,6 @@ const ManagerFeedBackMealPlan = () => {
       .put(`http://localhost:8080/api/notifications/approve/${selectedMealPlan}`, approvalData)
       .then(() => {
         toast.success('Meal Plan approved successfully!');
-
-        // Xóa meal plan vừa được duyệt khỏi danh sách
         setMealPlans((prevMealPlans) =>
           prevMealPlans.filter((mealPlan) => mealPlan[0] !== selectedMealPlan)
         );
@@ -74,7 +72,7 @@ const ManagerFeedBackMealPlan = () => {
       })
       .catch((error) => {
         console.error("Error approving the meal plan:", error);
-        toast.error('An error occurred while approving the meal plan.');
+        toast.error('You do not have permission to browse the function');
       });
   };
 
@@ -83,15 +81,13 @@ const ManagerFeedBackMealPlan = () => {
       .delete(`http://localhost:8080/api/notifications/delete/${mealPlanID}`)
       .then(() => {
         toast.success('Meal Plan rejected successfully!');
-
-        // Cập nhật danh sách mealPlans để xóa Meal Plan vừa bị từ chối
         setMealPlans((prevMealPlans) =>
           prevMealPlans.filter((mealPlan) => mealPlan[0] !== mealPlanID)
         );
       })
       .catch((error) => {
         console.error("Error rejecting the meal plan:", error);
-        toast.error('An error occurred while rejecting the meal plan.');
+        toast.error('You do not have permission to browse the function');
       });
   };
 

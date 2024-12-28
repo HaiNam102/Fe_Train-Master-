@@ -1,10 +1,10 @@
-// Main container styling for food content section
+
 .exercise-content {
     padding: 20px;
-    background-color: #f9f9f9; // Light background for contrast
+    background-color: #f9f9f9;
     border-radius: 8px;
   
-    // Title styling
+
     .title {
       font-size: 1.5rem;
       font-weight: bold;
@@ -13,7 +13,7 @@
       text-align: center;
     }
   
-    // Button styling for "Add new Food" button
+  
     .btn-exercise {
       display: flex;
       justify-content: left;
@@ -23,14 +23,14 @@
         padding: 10px 20px;
         font-size: 1rem;
         color: #fff;
-        background-color: #4caf50; // Green color for "Add" button
+        background-color: #4caf50; 
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
   
         &:hover {
-          background-color: #45a049; // Slightly darker on hover
+          background-color: #45a049; 
         }
       }
     }
