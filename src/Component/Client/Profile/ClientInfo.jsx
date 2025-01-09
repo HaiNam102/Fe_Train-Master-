@@ -84,7 +84,7 @@ const ClientInfo = () => {
     if (!client) return <div className="loading">Loading...</div>;
 
     return (
-        <Container className="profile-page mt-5">
+        <Container className="profile-page mt-5 mb-5">
             <div className="profile-card shadow-lg">
                 <div className="profile-header">
                     <img
@@ -238,7 +238,6 @@ const ClientInfo = () => {
                             <p><strong>Blood Pressure:</strong> {client.blood_pressure || "Not updated"}</p>
                             <p><strong>Job:</strong> {client.job || "Not updated"}</p>
 
-                            <Button variant="primary" onClick={() => setIsEditing(true)}>Edit</Button>
                         </div>
                     )}
                 </div>

@@ -27,7 +27,7 @@ function CreateTracking(props) {
     // Hàm tìm client_id dựa trên clientName
     const fetchClientIdByName = async (clientName) => {
         try {
-            const response = await axiosInstance.get(`http://localhost:8080/client/clientId/${clientName}`);
+            const response = await axiosInstance.get(`http://localhost:8080/client/getAllClient`);
             if (response.data && response.data.client_id) {
                 setClientId(response.data.client_id); // Lưu client_id
             } else {

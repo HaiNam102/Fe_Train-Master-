@@ -1,0 +1,54 @@
+.table {
+    border-collapse: collapse;
+    max-width: 98%;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  
+  .table th, .table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;  /* Thêm viền cho các ô */
+
+  }
+  
+  .table-light th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .fw-bold {
+    font-weight: 600;
+  }
+  
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-success:hover, .btn-danger:hover {
+    opacity: 0.8;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  

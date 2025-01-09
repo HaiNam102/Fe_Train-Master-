@@ -40,7 +40,7 @@ function Tracking() {
             labels,
             datasets: [
                 {
-                    label: 'Cân Nặng',
+                    label: 'Weight',
                     data: weights,
                     borderColor: 'Orange',
                     backgroundColor: 'rgba(232, 136, 64, 0.97)',
@@ -64,8 +64,8 @@ function Tracking() {
     };
 
     return (
-        <div className="tracking-container">
-            <div style={{ paddingTop: "90px" }}>
+        <div className="tracking-container ">
+            <div style={{ paddingTop: "90px", paddingBottom:"115px" }}>
                 <div style={{ display: 'flex', gap: '20px' }}>
                     <div className="tracking-table-container">
                         <TableContainer component={Paper}>

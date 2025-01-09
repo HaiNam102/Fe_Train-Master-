@@ -33,4 +33,22 @@
     background-color: #4caf50;
     color: white;
   }
+  .btn-gradient {
+    background: linear-gradient(45deg, #007bff, #00b3ff);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-gradient:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
+  }
   

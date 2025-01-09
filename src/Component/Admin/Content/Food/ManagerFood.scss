@@ -37,6 +37,7 @@
   // Table container styling for a neat layout
   .table-food-container {
     max-width: 100%;
+    height: 430px;
     overflow-x: auto; // Adds horizontal scroll if content overflows
     background-color: #fff;
     border-radius: 8px;
@@ -99,4 +100,22 @@
   width: 100px; /* Đặt chiều rộng */
   height: 100px; /* Đặt chiều cao */
   object-fit: cover;
+}
+.btn-gradient {
+  background: linear-gradient(45deg, #007bff, #00b3ff);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-gradient:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
 }

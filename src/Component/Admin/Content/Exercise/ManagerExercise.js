@@ -35,15 +35,16 @@ const ManagerExercise = () => {
             </div>
             <br className="large-spacing" />
             <div className="exercise-content">
-                <div className="btn-exercise">
-                <button
-                        onClick={() => setShowModalCreateExercise(true)}
-                        className="btn btn-primary"
-                    >
-                        <FontAwesomeIcon icon={faPlus} /> Add Exercise
-                    </button>
-                </div>
-                <div className="spacing-large"></div>
+            <div className="d-flex justify-content-start mb-3">
+  <button
+    onClick={() => setShowModalCreateExercise(true)}
+    className="btn-gradient rounded-pill d-flex align-items-center gap-2"
+  >
+    <FontAwesomeIcon icon={faPlus} />
+    <span>Add Exercise</span>
+  </button>
+</div>
+
                 <div className="table-exercise-container">
                     <TableExercise refresh={refreshTable} />
                 </div>

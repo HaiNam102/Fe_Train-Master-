@@ -95,9 +95,6 @@ const TableProgram = ({ refresh }) => {
         <div className="no-data-message">No programs available</div>
       ) : (
         <div className="card">
-          <div className="card-header">
-            <h5 className="card-title">Programs</h5>
-          </div>
           <div className="card-body">
             <table className="table table-striped table-bordered">
               <thead>
@@ -159,12 +156,12 @@ const TableProgram = ({ refresh }) => {
 
       {/* Pagination */}
       <ReactPaginate
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageChange}
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
         pageCount={totalPages}
-        previousLabel="< previous"
+        previousLabel="<"
         pageClassName="page-item"
         pageLinkClassName="page-link"
         previousClassName="page-item"

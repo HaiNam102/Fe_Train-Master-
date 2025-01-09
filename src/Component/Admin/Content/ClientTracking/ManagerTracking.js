@@ -35,15 +35,16 @@ const ManagerTracking = () => {
             </div>
             <br className="large-spacing" />
             <div className="tracking-content">
-                <div className="btn-tracking">
-                    <button
-                        onClick={() => setShowModalCreateTracking(true)}
-                        className="btn btn-primary"
-                    >
-                        <FontAwesomeIcon icon={faPlus} /> Add Tracking
-                    </button>
-                </div>
-                <div className="spacing-large"></div>
+            <div className="d-flex justify-content-start mb-3">
+  <button
+    onClick={() => setShowModalCreateTracking(true)}
+    className="btn-gradient rounded-pill d-flex align-items-center gap-2"
+  >
+    <FontAwesomeIcon icon={faPlus} />
+    <span>Add Tracking</span>
+  </button>
+</div>
+
                 <div className="table-tracking-container">
                     <TableTracking refresh={refreshTable} />
                 </div>

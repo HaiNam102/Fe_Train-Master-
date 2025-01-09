@@ -13,7 +13,7 @@ const ApprovedPrograms = () => {
     const fetchApprovedPrograms = async () => {
       try {
         const token = localStorage.getItem("token");
-        const username = localStorage.getItem("username"); // assuming username is stored in localStorage
+        const username = localStorage.getItem("username");
         const response = await axios.get(
           "http://localhost:8080/programs/approved",
           {
@@ -24,13 +24,12 @@ const ApprovedPrograms = () => {
           }
         );
 
-        // Process the response data into a structured format
         const groupedPrograms = groupExercisesByProgram(response.data);
         setPrograms(groupedPrograms);
         setLoading(false);
       } catch (error) {
         setLoading(false);
-        setError("Failed to load approved programs");
+        setError("Currently, there is no Programs for you. Wait for us to update!");
         toast.error("Error loading approved programs");
       }
     };
@@ -38,7 +37,6 @@ const ApprovedPrograms = () => {
     fetchApprovedPrograms();
   }, []);
 
-  // Group exercises by programId
   const groupExercisesByProgram = (data) => {
     const grouped = {};
 
@@ -62,7 +60,6 @@ const ApprovedPrograms = () => {
         volume,
       ] = item;
 
-      // Check if program exists in the grouped object
       if (!grouped[programId]) {
         grouped[programId] = {
           day,
@@ -72,7 +69,6 @@ const ApprovedPrograms = () => {
         };
       }
 
-      // Push exercise data
       grouped[programId].exercises.push({
         exerciseName,
         setsStandard,
@@ -89,33 +85,33 @@ const ApprovedPrograms = () => {
         volume,
       });
 
-      // Sum total volume for the program
       grouped[programId].totalVolume += volume;
     });
 
-    return Object.values(grouped); // Return grouped programs as an array
+    return Object.values(grouped);
   };
 
   if (loading) {
     return (
-      <Container>
+      <Container className="text-center mt-5">
         <Spinner animation="border" variant="primary" />
-        <span>Loading approved programs...</span>
+        <p>Loading approved programs...</p>
       </Container>
     );
   }
 
-  if (error) {
+  if (error || programs.length === 0) {
     return (
-      <Alert variant="danger">
-        {error}
-      </Alert>
+      <Container className="program-container">
+        <div className="text-center mt-5">
+          {error ? <Alert variant="danger">{error}</Alert> : <p>No data available</p>}
+        </div>
+      </Container>
     );
   }
 
   return (
-    <Container style={{ paddingTop: "90px !important" }}>
-      <h2>Programs</h2>
+    <Container className="program-container">
       {programs.map((program, index) => (
         <div key={index} className="program-section">
           <h3>
@@ -138,8 +134,8 @@ const ApprovedPrograms = () => {
               </tr>
             </thead>
             <tbody>
-              {program.exercises.map((exercise, index) => (
-                <tr key={index}>
+              {program.exercises.map((exercise, i) => (
+                <tr key={i}>
                   <td>{exercise.exerciseName}</td>
                   <td>{exercise.setsStandard}</td>
                   <td>{exercise.set1}</td>
@@ -153,8 +149,8 @@ const ApprovedPrograms = () => {
                   <td>{exercise.rirRpe}</td>
                 </tr>
               ))}
-              <tr>
-                <td colSpan="7"><strong>Total Volume</strong></td>
+              <tr className="total-row">
+                <td colSpan="7">Total Volume</td>
                 <td>{program.totalVolume}</td>
                 <td colSpan="3"></td>
               </tr>

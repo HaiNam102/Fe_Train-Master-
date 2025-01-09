@@ -1,0 +1,252 @@
+// Biến màu sắc tùy chỉnh cho theme
+$primary-color: #000000;  // Màu chính (xanh dương)
+$success-color: #28a745;  // Màu thành công (xanh lá)
+$danger-color: #dc3545;   // Màu thất bại (đỏ)
+$background-color: #f8f9fa; // Nền nhạt
+$text-color: #000000;  // Màu chữ đen
+
+// Thêm font chữ đẹp cho trang
+$font-family: 'Roboto', sans-serif;
+$heading-font-family: 'Montserrat', sans-serif;
+
+// Cài đặt kiểu cho body
+body {
+    font-family: $font-family;
+    background-color: $background-color;
+    margin: 0;
+    padding: 0;
+}
+
+// Tiêu đề chính (h1)
+h1 {
+    font-family: $heading-font-family;
+    font-size: 2.5rem;
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+// Các container
+.container {
+    padding-top: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+
+// Card - Để chứa các thông tin và form
+.card {
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+// Các Row và Col cho layout form
+.row {
+    margin-bottom: 1.5rem;
+}
+
+.col-3 {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.col-9 {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+// Các label cho trường nhập liệu
+label {
+    font-weight: 600;
+    font-size: 1.2rem;  // Tăng kích thước chữ
+    color: $text-color;  // Chữ màu đen
+    margin-bottom: 8px;
+}
+
+// Các trường nhập liệu
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 12px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+// Các kiểu cho Button
+button {
+    font-size: 1.1rem;  // Tăng kích thước chữ cho button
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+// Button thành công (Lưu)
+button.btn-success {
+    background-color: $success-color;
+    border: none;
+    color: white;
+    &:hover {
+        background-color: darken($success-color, 10%);
+    }
+}
+
+// Button hủy
+button.btn-danger {
+    background-color: $danger-color;
+    border: none;
+    color: white;
+    &:hover {
+        background-color: darken($danger-color, 10%);
+    }
+}
+
+// Button chỉnh sửa
+button.btn-primary {
+    background-color: $primary-color;
+    border: none;
+    color: white;
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+}
+
+button.ms-2 {
+    margin-left: 10px;
+}
+
+// Các thông báo (Alert)
+.alert {
+    font-size: 1.1rem;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+// Chỉnh sửa layout khi không ở chế độ chỉnh sửa
+.card-text {
+    font-size: 1.4rem;  // Tăng kích thước chữ
+    color: $text-color;  // Màu chữ đen
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.card-text strong {
+    font-weight: 700;
+    color: $primary-color;
+}
+
+// Các kiểu cho thông tin trong trang hiển thị (khi không chỉnh sửa)
+button.btn-primary {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 12px;
+    background-color: $primary-color;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+    background-color: darken($primary-color, 10%);
+}
+
+// Hiệu ứng hover cho các trường nhập liệu
+.form-control:hover,
+.form-select:hover {
+    border-color: $primary-color;
+}
+
+// Các kiểu khác cho các phần tử
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+}
+
+// Các kiểu cho phần chỉnh sửa và hủy
+button.btn-danger {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 12px;
+    background-color: $danger-color;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-danger:hover {
+    background-color: darken($danger-color, 10%);
+}
+
+// Các phần tử tiêu đề nhỏ hơn trong phần hiển thị thông tin
+h3 {
+    font-size: 1.8rem;  // Tăng kích thước chữ
+    font-weight: 600;
+    color: $primary-color;
+    margin-top: 2rem;
+}
+
+// Cải thiện giao diện khi người dùng không chỉnh sửa
+h4 {
+    font-size: 1.4rem;  // Tăng kích thước chữ
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+// Cải thiện hiệu ứng khi người dùng hover vào các nút
+button:active {
+    transform: scale(0.98);
+}
+
+// Các hiệu ứng chuyển động mượt mà
+.container {
+    transition: all 0.3s ease-in-out;
+}
+
+

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { menuClient } from '../../Contants';
+import { menuClient } from '../../Contants1';
 import logo_1 from "../../../assets/image/logo_1.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faRightFromBracket, faCircleUser, faBars, faSearch, faFacebook, faTwitter, faYoutubePlay, faInstagram, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faRightFromBracket, faCircleUser, faBars, faSearch, faFacebook, faTwitter, faYoutubePlay, faInstagram, faClose, faList } from '@fortawesome/free-solid-svg-icons';
 import Logout from '../../Login/Logout';
 
 function Navbar(props) {
@@ -44,7 +44,7 @@ function Navbar(props) {
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <a href="./index.html">
+                                <a href="/Home">
                                     <img style={{ width: '100px', height: 'auto' }} src={logo_1} alt="Logo" />
                                 </a>
                             </div>
@@ -63,36 +63,48 @@ function Navbar(props) {
                             </nav>
                         </div>
                         <div className="col-lg-3 text-end">
-                            <div onClick={() => setProfile(!profile)} className="profile-client position-relative">
-                                <div className="d-flex align-items-center justify-content-end gap-3">
-                                    <h4 className="mb-0">Hello Nam !!</h4>
-                                    <i className="fa-regular fa-circle-user h3 m-0"></i>
-                                </div>
-                                {profile && (
-                                    <div className="position-absolute bg-black end-0 text-white rounded mt-1" style={{ zIndex: 1000 }}>
-                                        <ul className="list-unstyled">
-                                            <li className="d-flex align-items-center border-bottom border-light p-2">
-                                                <FontAwesomeIcon icon={faUser} style={{ marginRight: '7px' }} />
-                                                <Link to="/Home/Profile" style={{ textDecoration: 'none' }}>
-                                                    Profile
-                                                </Link>
-                                            </li>
-                                            <li className="d-flex align-items-center p-2">
-                                                <FontAwesomeIcon
-                                                    icon={faRightFromBracket}
-                                                    onClick={() => {
-                                                        handleShowModal();
-                                                    }}
-                                                    style={{ marginRight: '8px' }}
-                                                />
-                                                Logout
-                                            </li>
-                                        </ul>
-                                    </div>
-                                )}
+    <div onClick={() => setProfile(!profile)} className="profile-client position-relative">
+        <div className="d-flex align-items-center justify-content-end gap-3">
+            <FontAwesomeIcon 
+                icon={faList} 
+                className="h3 m-0 text-white" 
+                style={{ cursor: 'pointer' }} 
+            />
+        </div>
+        {profile && (
+    <div className="position-absolute bg-black end-0 text-white rounded mt-1" style={{ zIndex: 1000 }}>
+        <ul className="list-unstyled">
+        <li className="d-flex align-items-center border-bottom border-light p-2">
+    <FontAwesomeIcon icon={faUser} style={{ marginRight: '7px' }} />
+    <Link
+        to="/Home/Profile"
+        style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}
+        onMouseEnter={(e) => (e.target.style.color = 'orange')}
+        onMouseLeave={(e) => (e.target.style.color = 'white')}
+    >
+        Profile
+    </Link>
+</li>
+<li className="d-flex align-items-center p-2">
+    <FontAwesomeIcon icon={faRightFromBracket} style={{ marginRight: '8px' }} />
+    <span
+        style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}
+        onClick={() => handleShowModal()}
+        onMouseEnter={(e) => (e.target.style.color = 'orange')}
+        onMouseLeave={(e) => (e.target.style.color = 'white')}
+    >
+        Logout
+    </span>
+</li>
 
-                            </div>
-                        </div>
+
+        </ul>
+    </div>
+)}
+
+    </div>
+</div>
+
 
                     </div>
                     <div class="canvas-open">

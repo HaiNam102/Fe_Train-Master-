@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import "react-pro-sidebar/dist/css/styles.css"; 
+import "react-pro-sidebar/dist/css/styles.css";
 import img from "../../assets/image/admin.png";
 import "./SideBar.scss";
 import { useEffect } from "react";
@@ -9,8 +9,8 @@ import Logout from "../Login/Logout";
 
 const SideBar = ({ isOpen, toggleSidebar }) => {
   const [isFeedBackOpen, setFeedBackOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false); 
-  const [username, setUsername] = useState(""); 
+  const [showModal, setShowModal] = useState(false);
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   // Lấy username từ token
@@ -18,19 +18,19 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       try {
-        const payload = storedToken.split(".")[1]; 
-        const decodedPayload = JSON.parse(atob(payload)); 
+        const payload = storedToken.split(".")[1];
+        const decodedPayload = JSON.parse(atob(payload));
 
-        setUsername(decodedPayload.sub); 
+        setUsername(decodedPayload.sub);
       } catch (error) {
         console.error("Lỗi parse token:", error);
-        setUsername(null); 
+        setUsername(null);
       }
     } else {
       console.warn("Không tìm thấy token trong localStorage");
-      setUsername(null); 
+      setUsername(null);
     }
-  }, []); 
+  }, []);
 
   const handleClose = () => {
     setShowModal(false);
@@ -38,7 +38,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/Home1"); 
+    navigate("/Home1");
   };
 
   const handleShowModal = () => {
@@ -161,16 +161,31 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
             Calendar
           </Link>
         </MenuItem>
-        <MenuItem icon={<i className="fa fa-male fa-2x"></i>} style={{ marginBottom: 60 }}>
-          <Link to="/Admins/ClientTracking" className="nav-text">Client Tracking</Link>
+        <MenuItem
+          icon={<i className="fa fa-male fa-2x"></i>}
+          style={{ marginBottom: 60 }}
+        >
+          <Link to="/Admins/ClientTracking" className="nav-text">
+            Client Tracking
+          </Link>
         </MenuItem>
-        <MenuItem icon={<i className="fa fa-registered fa-2x"></i>} style={{ marginBottom: 2 }}>
-          <Link to="/Admins/Register" className="nav-text">Profile Form</Link>
+        <MenuItem
+          icon={<i className="fa fa-registered fa-2x"></i>}
+          style={{ marginBottom: 2 }}
+        >
+          <Link to="/Admins/Register" className="nav-text">
+            Profile Form
+          </Link>
         </MenuItem>
         <MenuItem icon={<i className="fa fa-user fa-2x"></i>}>
-          <Link to="/Admins/InfoUser" className="nav-text">Profile</Link>
+          <Link to="/Admins/InfoUser" className="nav-text">
+            Profile
+          </Link>
         </MenuItem>
-        <MenuItem icon={<i className="fa fa-sign-out fa-2x"></i>} onClick={handleShowModal}>
+        <MenuItem
+          icon={<i className="fa fa-sign-out fa-2x"></i>}
+          onClick={handleShowModal}
+        >
           Logout
         </MenuItem>
 

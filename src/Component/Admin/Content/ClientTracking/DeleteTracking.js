@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function DeleteTracking({ trackingId, onDelete }) {
   const [show, setShow] = useState(false);
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   const axiosInstance = axios.create({
     headers: {
       Authorization: `Bearer ${token}`,
@@ -16,13 +16,15 @@ function DeleteTracking({ trackingId, onDelete }) {
 
   const handleDelete = async () => {
     try {
-      await axiosInstance.delete(`http://localhost:8080/clientstracking/${trackingId}`);
-      toast.success('Tracking deleted successfully');
+      await axiosInstance.delete(
+        `http://localhost:8080/clientstracking/${trackingId}`
+      );
+      toast.success("Tracking deleted successfully");
       onDelete(trackingId); // Thông báo cho parent để cập nhật danh sách
       setShow(false); // Đóng modal
     } catch (error) {
-      console.error('Lỗi khi xóa tracking:', error);
-      toast.error('Xóa tracking thất bại');
+      console.error("Lỗi khi xóa tracking:", error);
+      toast.error("Xóa tracking thất bại");
     }
   };
 
@@ -37,7 +39,7 @@ function DeleteTracking({ trackingId, onDelete }) {
           <Modal.Title>Delete Tracking</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Bạn có chắc chắn muốn xóa bản ghi tracking này không?</p>
+          <p>Are you sure you want to delete this tracking record?</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShow(false)}>

@@ -1,7 +1,8 @@
-import React from 'react';
-import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 
 const DeleteCalendar = ({ calendarId, refreshCalendar }) => {
   const token = localStorage.getItem("token");
@@ -13,7 +14,9 @@ const DeleteCalendar = ({ calendarId, refreshCalendar }) => {
       return;
     }
 
-    if (!window.confirm("Are you sure you want to delete this calendar entry?")) {
+    if (
+      !window.confirm("Are you sure you want to delete this calendar entry?")
+    ) {
       return;
     }
 
@@ -23,12 +26,14 @@ const DeleteCalendar = ({ calendarId, refreshCalendar }) => {
           Authorization: `Bearer ${token}`, // Đảm bảo token được thêm vào header
         },
       });
-      
+
       // Gọi API DELETE để xóa lịch
-      const response = await axiosInstance.delete(`http://localhost:8080/calendar/delete/${calendarId}`);
+      const response = await axiosInstance.delete(
+        `http://localhost:8080/calendar/delete/${calendarId}`
+      );
 
       if (response.status === 200) {
-        alert("Calendar entry deleted successfully.");
+        toast.success("Calendar deleted successfully");
         refreshCalendar(); // Gọi hàm refreshCalendar để làm mới danh sách
       } else {
         alert("Error deleting calendar entry.");
@@ -37,7 +42,7 @@ const DeleteCalendar = ({ calendarId, refreshCalendar }) => {
       console.error("Error deleting calendar:", error);
       if (error.response && error.response.status === 401) {
         alert("Unauthorized. Please log in again.");
-        window.location.href = '/login'; // Redirect to login page if unauthorized
+        window.location.href = "/login"; // Redirect to login page if unauthorized
       } else {
         alert("Error deleting calendar entry.");
       }

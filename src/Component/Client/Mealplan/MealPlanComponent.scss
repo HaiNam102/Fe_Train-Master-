@@ -1,176 +1,124 @@
-// MealPlanComponent.scss
+/* Styles specific to the ApprovedMealPlans component */
+.approved-meal-plans {
+  min-height: 100vh; /* Đảm bảo chiều cao tối thiểu */
+  display: flex;
+  flex-direction: column;
 
-// Base colors for the theme
-$primary-color: #4CAF50;
-$secondary-color: #FF5722;
-$background-color: #f4f4f4;
-$text-color: #333;
-$card-bg-color: white;
-$card-border-color: #ddd;
-$card-shadow-color: rgba(0, 0, 0, 0.1);
-$loading-color: #777;
-$error-color: #d9534f;
-$success-color: #5bc0de;
+  .meal-plan {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-// Font size variables
-$font-size-base: 16px;
-$font-size-large: 18px;
-$font-size-small: 14px;
-$font-size-xlarge: 24px;
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: black;
+    }
 
-// Mixin for flexbox centering
-@mixin flex-center {
+    h4 {
+      font-size: 1.2rem;
+      color: #6c757d;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #007bff;
+        color: white;
+        font-weight: 600;
+      }
+
+      td {
+        background-color: #f8f9fa;
+      }
+
+      tr:nth-child(even) {
+        background-color: #e9ecef;
+      }
+
+      tr:hover {
+        background-color: #d6e0e9;
+      }
+    }
+
+    .total-row {
+      font-weight: bold;
+      background-color: #e9ecef;
+    }
+
+    .meal-plan-header {
+      margin-bottom: 30px;
+    }
+  }
+
+  /* Spinner and error handling styles */
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Đẩy footer xuống dưới */
+  }
+
+  .empty-container {
+    text-align: center;
+    margin-top: auto; /* Đẩy nội dung lên trên nếu không có dữ liệu */
+    margin-bottom: auto;
+    font-size: 18px;
+    color: #555;
+  }
+
+  .alert-error {
+    margin-top: 20px;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 8px;
+  }
+}
+
+/* Ensure footer stays at the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+  text-align: center;
+}
+.no-data-container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-// Main container for the meal plan page
-.meal-plan-container {
-  @include flex-center;
-  flex-direction: column;
-  padding: 30px;
-  background-color: $background-color;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px $card-shadow-color;
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px auto;
-  gap: 30px;
-
-  @media (max-width: 768px) {
-    padding: 20px;
-    gap: 20px;
-  }
-}
-
-// Table styles for meal plans
-.meal-plan-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: $card-bg-color;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px $card-shadow-color;
-
-  th,
-  td {
-    padding: 12px 15px;
-    text-align: left;
-    font-size: $font-size-base;
-    color: $text-color;
-  }
-
-  th {
-    background-color: $primary-color;
-    color: white;
-    font-size: $font-size-large;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  tr:hover {
-    background-color: #f1f1f1;
-  }
-}
-
-// Loading spinner styles
-.loading-container {
-  @include flex-center;
-  flex-direction: column;
-  gap: 10px;
-  font-size: $font-size-large;
-  color: $loading-color;
-
-  .spinner-border {
-    width: 50px;
-    height: 50px;
-    border-width: 4px;
-  }
-}
-
-// Error alert styles
-.error-alert {
-  background-color: $error-color;
-  color: white;
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: $font-size-large;
-  margin-top: 20px;
-}
-
-// Responsive table styling for small screens
-@media (max-width: 768px) {
-  .meal-plan-table {
-    font-size: $font-size-small;
-  }
-
-  th,
-  td {
-    padding: 10px 12px;
-  }
-
-  .meal-plan-table td {
-    word-wrap: break-word;
-    font-size: $font-size-small;
-  }
-}
-  h2 {
-    text-align: center;
-  }
-// Card styles for displaying individual meal plan information
-.program-card {
-  display: flex;
-  flex-direction: column;
-  background-color: $card-bg-color;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px $card-shadow-color;
-  width: 100%;
-  margin-bottom: 20px;
-
-  .program-card-header {
-    font-size: $font-size-xlarge;
-    font-weight: bold;
-    color: $primary-color;
-    margin-bottom: 10px;
-  }
-
-  .program-card-body {
-    font-size: $font-size-base;
-    color: $text-color;
-
-    .meal-plan-details {
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      .meal-plan-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: $font-size-base;
-
-        .meal-name {
-          font-weight: bold;
-        }
-
-        .meal-info {
-          display: flex;
-          gap: 10px;
-
-          .nutrient {
-            font-weight: bold;
-          }
-
-          .value {
-            color: $secondary-color;
-          }
-        }
-      }
-    }
-  }
+  flex-direction: column; /* Đặt hướng flex dọc */
+  min-height: 3vh; /* Chiều cao tối thiểu */
+  border: 2px solid #f5c2c7; /* Viền */
+  border-radius: 8px; /* Bo góc viền */
+  padding: 15px  5px 5px 5px; /* Tăng padding trên/dưới và hai bên */
+  color: #000; /* Màu chữ đen */
+  font-size: 10rem; /* Tăng kích thước chữ */
+  background-color: #f8d7da; /* Màu nền */
+  text-align: center; /* Căn giữa nội dung */
+  margin-top: 70px; /* Tạo khoảng cách xung quanh */
+  line-height: 1.5; /* Khoảng cách dòng */
 }

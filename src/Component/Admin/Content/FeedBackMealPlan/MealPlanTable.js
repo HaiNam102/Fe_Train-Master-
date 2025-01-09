@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import './MealPlanTable.scss';
 
 const MealPlanTable = ({ mealPlans, onOpenModal, onReject }) => {
   const groupedMealPlans = mealPlans.reduce((acc, mealPlan) => {

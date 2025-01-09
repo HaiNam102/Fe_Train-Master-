@@ -95,9 +95,6 @@ const TableMealPlan = ({ refresh }) => {
         <div className="no-data-message">No meal plans available</div>
       ) : (
         <div className="card">
-          <div className="card-header">
-            <h5 className="card-title">Meal Plans</h5>
-          </div>
           <div className="card-body">
             <table className="table table-striped table-bordered">
               <thead>
@@ -144,12 +141,12 @@ const TableMealPlan = ({ refresh }) => {
       )}
 
       <ReactPaginate
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageChange}
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
         pageCount={totalPages}
-        previousLabel="< previous"
+        previousLabel="<"
         pageClassName="page-item"
         pageLinkClassName="page-link"
         previousClassName="page-item"

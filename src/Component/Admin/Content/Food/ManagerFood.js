@@ -35,15 +35,16 @@ const ManagerFood = () => {
             </div>
             <br className="large-spacing" />
             <div className="food-content">
-                <div className="btn-food">
-                <button
-                        onClick={() => setShowModelCreateFood(true)}
-                        className="btn btn-primary"
-                    >
-                        <FontAwesomeIcon icon={faPlus} /> Add Food
-                    </button>
-                </div>
-                <div className="spacing-large"></div>
+            <div className="d-flex justify-content-start mb-3">
+  <button
+    onClick={() => setShowModelCreateFood(true)}
+    className="btn-gradient rounded-pill d-flex align-items-center gap-2"
+  >
+    <FontAwesomeIcon icon={faPlus} />
+    <span>Add Food</span>
+  </button>
+</div>
+
                 <div className="table-food-container">
                     <TableFood refresh={refreshTable} />
                 </div>

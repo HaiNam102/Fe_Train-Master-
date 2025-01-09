@@ -28,9 +28,9 @@ const LoginForm = () => {
         localStorage.setItem("token", response.data.jwt);
 
         const decodedToken = jwtDecode(response.data.jwt);
-        const userRole = decodedToken.role; 
+        const userRole = decodedToken.role;
 
-        console.log(userRole); 
+        console.log(userRole);
 
         if (
           userRole === "Owner" ||
@@ -38,11 +38,11 @@ const LoginForm = () => {
           userRole === "Fitness_Manager"
         ) {
           // toast.success();
-          alert("Đăng nhập thành công vào trang admin!");
-          navigate("/Admins"); 
+          // alert("Đăng nhập thành công vào trang admin!");
+          navigate("/Admins");
         } else if (userRole === "Client") {
           // toast.success();
-          alert("Đăng nhập thành công!!!");
+          // alert("Đăng nhập thành công!!!");
           navigate("/Home");
         }
       }
@@ -50,7 +50,7 @@ const LoginForm = () => {
       // toast.error(
       //   "Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu!"
       // );
-      alert("Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu!")
+      alert("Login failed, please double-check account and password!");
     }
   };
 
@@ -87,7 +87,7 @@ const LoginForm = () => {
                       <div className="form-outline mb-4">
                         <input
                           type="text"
-                          placeholder="Nhập tài khoản"
+                          placeholder="Enter an account"
                           value={username}
                           onChange={(e) => setUsername(e.target.value)}
                           autoComplete="username"
@@ -101,14 +101,13 @@ const LoginForm = () => {
                       <div className="form-outline mb-4">
                         <input
                           type="password"
-                          placeholder="Nhập mật khẩu"
+                          placeholder="Enter the password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           autoComplete="current-password"
                           className="form-control form-control-lg"
                           required
                         />
-
                       </div>
 
                       <div className="pt-1 mb-4">
@@ -129,7 +128,6 @@ const LoginForm = () => {
                           Register here
                         </a>
                       </p>
-
                     </form>
                   </div>
                 </div>

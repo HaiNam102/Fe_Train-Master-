@@ -81,7 +81,7 @@ const Register_Admin = () => {
                 </div>
                 <p className="text-muted fs-5"></p>
             </div>
-            <div className="container d-flex align-items-center justify-content-center min-vh-100">
+            <div className="register-container d-flex align-items-center justify-content-center ">
                 <div className="card w-75 shadow">
                     <div className="card-body">
                         <h2 className="text-center mb-4">Create an Account</h2>

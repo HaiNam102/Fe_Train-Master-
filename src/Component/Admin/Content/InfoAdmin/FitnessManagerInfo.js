@@ -55,23 +55,28 @@ const FitnessManagerInfo = () => {
 
             setFitnessManager(formData);
             setIsEditing(false);
-            toast.success('Cập nhật thông tin thành công!');
+            toast.success('Update information successfully!');
         } catch (error) {
-            console.error("Không thể cập nhật thông tin Fitness Manager", error);
-            toast.error('Cập nhật thông tin thất bại!');
+            console.error("Unable to update Fitness Manager information", error);
+            toast.error('Update failure information!');
         }
     };
 
-    if (!fitnessManager) return <div>Đang tải...</div>;
+    if (!fitnessManager) return <div>Loading...</div>;
 
     return (
-        <div className="">
-            <h1 className="">Thông tin Fitness Manager</h1>
+        <div className="frame" style={{  marginTop: "60px",
+        border: "1px solid #ddd", 
+        width: "1000px",
+        marginLeft: "auto", 
+        marginRight: "auto"
+    }}>
+            <h1 className="">Fitness Manager Information</h1>
             {isEditing ? (
                 <Container>
                     <Row className="mb-3">
                         <Col xs={12} sm={3}>
-                            <label>Họ:</label>
+                            <label>Last Name:</label>
                         </Col>
                         <Col xs={12} sm={9}>
                             <Form.Control
@@ -85,7 +90,7 @@ const FitnessManagerInfo = () => {
 
                     <Row className="mb-3">
                         <Col xs={12} sm={3}>
-                            <label>Tên:</label>
+                            <label>First Name:</label>
                         </Col>
                         <Col xs={12} sm={9}>
                             <Form.Control
@@ -99,7 +104,7 @@ const FitnessManagerInfo = () => {
 
                     <Row className="mb-3">
                         <Col xs={12} sm={3}>
-                            <label>Giới tính:</label>
+                            <label>Gender:</label>
                         </Col>
                         <Col xs={12} sm={9}>
                             <Form.Select
@@ -115,7 +120,7 @@ const FitnessManagerInfo = () => {
 
                     <Row className="mb-3">
                         <Col xs={12} sm={3}>
-                            <label>Ngày sinh:</label>
+                            <label>Birthday:</label>
                         </Col>
                         <Col xs={12} sm={9}>
                             <Form.Control
@@ -129,7 +134,7 @@ const FitnessManagerInfo = () => {
 
                     <Row className="mb-3">
                         <Col xs={12} sm={3}>
-                            <label>Số điện thoại:</label>
+                            <label>Phone Number:</label>
                         </Col>
                         <Col xs={12} sm={9}>
                             <Form.Control
@@ -143,7 +148,7 @@ const FitnessManagerInfo = () => {
 
                     <Row className="mb-3">
                         <Col xs={12} sm={3}>
-                            <label>Địa chỉ:</label>
+                            <label>Address:</label>
                         </Col>
                         <Col xs={12} sm={9}>
                             <Form.Control
@@ -170,20 +175,22 @@ const FitnessManagerInfo = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <Button variant="success" onClick={handleSave}>Lưu</Button>
-                            <Button variant="danger" className="ms-2" onClick={() => setIsEditing(false)}>Hủy</Button>
+                            <Button variant="success" onClick={handleSave}>Save</Button>
+                            <Button variant="danger" className="ms-2" onClick={() => setIsEditing(false)}>Cancel</Button>
                         </Col>
                     </Row>
                 </Container>
             ) : (
                 <div>
-                    <p><strong>Họ và tên:</strong> {fitnessManager.firstName} {fitnessManager.lastName}</p>
-                    <p><strong>Giới tính:</strong> {fitnessManager.gender}</p>
-                    <p><strong>Ngày sinh:</strong> {fitnessManager.birthDate}</p>
-                    <p><strong>Số điện thoại:</strong> {fitnessManager.phone}</p>
-                    <p><strong>Địa chỉ:</strong> {fitnessManager.address}</p>
-                    <p><strong>Email:</strong> {fitnessManager.email}</p>
-                    <Button variant="primary" onClick={() => setIsEditing(true)}>Chỉnh sửa</Button>
+<p style={{ color: 'black', fontSize: '18px' }}><strong>Full name:</strong> {fitnessManager.firstName} {fitnessManager.lastName}</p>
+<p style={{ color: 'black', fontSize: '18px' }}><strong>Gender:</strong> {fitnessManager.gender}</p>
+<p style={{ color: 'black', fontSize: '18px' }}><strong>Birthday:</strong> {fitnessManager.birthDate}</p>
+<p style={{ color: 'black', fontSize: '18px' }}><strong>Phone Number:</strong> {fitnessManager.phone}</p>
+<p style={{ color: 'black', fontSize: '18px' }}><strong>Address:</strong> {fitnessManager.address}</p>
+<p style={{ color: 'black', fontSize: '18px' }}><strong>Email:</strong> {fitnessManager.email}</p>
+
+
+                    <Button variant="primary" onClick={() => setIsEditing(true)}>Edit</Button>
                 </div>
             )}
         </div>

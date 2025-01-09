@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import './ProgramTable.scss';
 
 const ProgramTable = ({ programs, onOpenModal, onReject }) => {
   const groupedPrograms = programs.reduce((acc, program) => {

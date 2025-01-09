@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { menuClient } from '../../Contants';
+import { menuClient } from '../../Contants.js';
 import logo_1 from "../../../assets/image/logo_1.jpg";
 function Navbar(props) {
     const [isChoose,setIsChoose] = useState("Home");
@@ -47,7 +47,7 @@ function Navbar(props) {
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <a href="./index.html">
+                                <a href="">
                                 <img style={{ width: '100px', height: 'auto' }} src={logo_1} alt="Logo" />
 
                                 </a>
@@ -69,7 +69,7 @@ function Navbar(props) {
                         <div class="col-lg-3 text-end">
                             <div className="nav-menu text-end">
                                 <ul>
-                                <li><a href="/Login">Login</a></li>
+                                <li><a href="/login">Login</a></li>
                                 <li><a href="/Register_Client">Signup</a></li>
                                 </ul>            
                             </div>

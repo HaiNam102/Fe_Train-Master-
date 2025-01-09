@@ -56,7 +56,7 @@ const TableTracking = ({ refresh }) => {
   };
 
   return (
-    <div>
+    <div >
       <UpdateTracking
         show={showUpdateModal}
         setShow={setShowUpdateModal}
@@ -64,8 +64,8 @@ const TableTracking = ({ refresh }) => {
         onUpdate={fetchTrackingData}
       />
 
-      <div className="table-container">
-        <table className="table table-hover table-bordered">
+      <div className="table-container" >
+        <table className="table table-hover table-bordered" >
           <thead>
             <tr>
               <th>ID</th>
@@ -106,12 +106,12 @@ const TableTracking = ({ refresh }) => {
       </div>
 
       <ReactPaginate
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageChange}
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
         pageCount={totalPages}
-        previousLabel="< previous"
+        previousLabel="<"
         pageClassName="page-item"
         pageLinkClassName="page-link"
         previousClassName="page-item"

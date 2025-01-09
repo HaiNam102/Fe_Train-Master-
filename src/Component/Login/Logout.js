@@ -8,21 +8,22 @@ const Logout = ({ showModal, handleClose, handleLogout }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-conten">
-        <h2>Xác nhận đăng xuất</h2>
-        <p>Bạn có chắc muốn đăng xuất không?</p>
+        <h2>Confirm sign-out</h2>
+        <p>Are you sure you want to log out?</p>
         <div className="modal-actions">
-          <button onClick={handleClose} className="btn btn-secondary">
-            Hủy
-          </button>
-          <button
+        <button
             onClick={() => {
               handleLogout(); 
               handleClose(); 
             }}
             className="btn btn-primary"
           >
-            Đăng xuất
+            Log out
           </button>
+          <button onClick={handleClose} className="btn btn-secondary">
+            Cancel
+          </button>
+          
         </div>
       </div>
     </div>

@@ -1,27 +1,27 @@
 export const menuClient = [
   {
     id: 1,
-    title : "Home",
-    path : '/Home'
+    title: "Home",
+    path: "",
   },
   {
     id: 2,
-    title : "Tracking",
-    path : '/Home/Tracking'
+    title: "Tracking",
+    path: "/login",
   },
   {
     id: 3,
-    title : "Program",
-    path : '/Home/program'
+    title: "Program",
+    path: "/login",
   },
   {
     id: 4,
-    title : "Mealplan",
-    path : '/Home/mealplan'
+    title: "Mealplan",
+    path: "/login",
   },
   {
     id: 5,
-    title : "Calendar",
-    path : '/Home/calendar'
-  }
-]
+    title: "Calendar",
+    path: "/login",
+  },
+];

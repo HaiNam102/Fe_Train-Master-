@@ -6,7 +6,18 @@ import StatCard from "./StatCard";
 
 const DashBoard = () => {
     return (
-        <div className="d-flex flex-column overflow-auto position-relative">
+        <div className="d-flex flex-column overflow-auto position-relative" 
+        style={{
+            backgroundColor: "#f9f9f9",
+            padding: "10px 30px",
+            overflow: "hidden",
+            borderRadius: "10px",
+            marginLeft: "15px",
+            background: "white",
+            padding: "20px",
+            boxShadow: " 0 10px 20px rgba(0, 0, 0, 0.2)"
+        }}
+        >
             {/* Header */}
             <Header title="Overview" />
 

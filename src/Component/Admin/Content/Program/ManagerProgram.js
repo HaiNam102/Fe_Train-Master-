@@ -36,15 +36,16 @@ const ManagerProgram = () => {
             </div>
             <br className="program-large-spacing" />
             <div className="program-content">
-                <div className="btn-program">
-                    <button
-                        onClick={() => setShowModalCreateProgram(true)}
-                        className="btn btn-primary"
-                    >
-                        <FontAwesomeIcon icon={faPlus} /> Add Program
-                    </button>
-                </div>
-                <div className="program-spacing-large"></div>
+            <div className="d-flex justify-content-start mb-3">
+  <button
+    onClick={() => setShowModalCreateProgram(true)}
+    className="btn-gradient rounded-pill d-flex align-items-center gap-2"
+  >
+    <FontAwesomeIcon icon={faPlus} />
+    <span>Add Program</span>
+  </button>
+</div>
+
                 <div className="table-program-container">
                     <TableProgram refresh={refreshTable} />
                 </div>

@@ -84,7 +84,7 @@ const ClientCalendar = () => {
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <h1 style={{ textAlign: "center" }}>Client Calendar</h1>
+        <h1 style={{ textAlign: "center" }}>Calendar</h1>
       </div>
       <FullCalendar
   plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
